@@ -1,0 +1,25 @@
+## Global Ignore file for Silver Searcher
+
+# Common Version Control
+.git/
+.hg/
+.svn/
+
+# NodeJS
+node_modules/
+
+*.a
+*.so
+*.zip
+*.cab
+*.msi
+*.exe
+*.lnk
+
+*.o
+*.obj
+*~
+desktop.ini
+Thumbs.db
+ehthumbs.db
+

@@ -1,0 +1,8 @@
+[Unit]
+Description=Fusuma Multitouch
+
+[Service]
+ExecStart=/usr/local/bin/fusuma
+
+[Install]
+WantedBy=default.target
