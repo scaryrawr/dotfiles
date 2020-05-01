@@ -1,11 +1,10 @@
 local target_apps = {
-	"Chat | Microsoft Teams",
+	"[Mm]icrosoft [Tt]eams",
 	"Geary",
 	"gedit",
 	"Messenger",
 	"Skype",
-	"spotify",
-	"Spotify",
+	"[Ss]potify",
 	"Sublime Merge",
 	"Sublime Text",
 	"Visual Studio Code"
@@ -13,7 +12,7 @@ local target_apps = {
 
 local current_app = get_application_name()
 for _, app in ipairs(target_apps) do
-	if current_app == app then
+	if string.find(current_app, app) then
 		set_window_opacity(0.95)
 		break
 	end
