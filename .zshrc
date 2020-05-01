@@ -101,7 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # Wal colors
 (cat ~/.cache/wal/sequences &)
 
-export PATH=${PATH}:${HOME}/.cargo/bin
+export PATH=${PATH}:${HOME}/.cargo/bin:${HOME}/.local/bin
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
