@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name="Fusuma"
+GenericName="fusuma"
+Comment="Fusuma Multitouch"
+Exec=/usr/local/bin/fusuma
+Terminal=false
+Type=Application
+X-Gnome-Autostart=true

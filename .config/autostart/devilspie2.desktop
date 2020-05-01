@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name="Devil's Pie 2"
+GenericName="devilspie2"
+Comment="Devil's Pie Runtime"
+Exec=/usr/bin/devilspie2
+Terminal=false
+Type=Application
+X-Gnome-Autostart=true
