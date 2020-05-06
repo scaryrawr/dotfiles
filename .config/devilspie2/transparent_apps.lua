@@ -1,12 +1,15 @@
 local target_apps = {
-	"[Mm]icrosoft [Tt]eams",
+	"Electron Fiddle",
 	"Geary",
 	"gedit",
 	"Messenger",
+	"Microsoft Teams",
 	"Skype",
-	"[Ss]potify",
+	"Spotify",
 	"Sublime Merge",
 	"Sublime Text",
+	"System Monitor",
+	"Tweaks",
 	"Visual Studio Code"
 }
 
