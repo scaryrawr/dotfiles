@@ -5,18 +5,18 @@ swipe:
     right: 
       command: 'xdotool key alt+Left'
     up: 
-      command: 'xdotool key super'
+      command: 'xdotool key super+Up'
     down: 
-      command: 'xdotool key super'
+      command: 'xdotool key super+Down'
   4:
     left: 
-      command: 'xdotool key ctrl+alt+Right'
+      command: 'xdotool key super+Left'
     right: 
-      command: 'xdotool key ctrl+alt+Left'
+      command: 'xdotool key super+Right'
     up: 
-      command: 'xdotool key ctrl+alt+Down'
+      command: 'xdotool key ctrl+super+Down'
     down: 
-      command: 'xdotool key ctrl+alt+Up'
+      command: 'xdotool key ctrl+super+Up'
 pinch:
   2:
     in:
