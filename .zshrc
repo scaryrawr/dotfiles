@@ -10,6 +10,10 @@ export ZSH="/home/mike/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="agnoster"
 
+# Wal colors
+cat ~/.cache/wal/sequences
+
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -63,12 +67,28 @@ ZSH_THEME="agnoster"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+ZSH_TMUX_AUTOSTART=true
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize cp tmux web-search node npm nvm python systemd dnf)
+plugins=(
+	dnf
+	encode64
+	fzf
+	git
+	gulp
+	node
+	npm
+	nvm
+	python
+	ruby
+	rust
+	systemd
+	tmux
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,9 +118,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Wal colors
-(cat ~/.cache/wal/sequences &)
-
 export PATH=${PATH}:${HOME}/.cargo/bin:${HOME}/.local/bin
 
 # NVM
@@ -110,3 +127,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # Git Dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.gitdotfiles/ --work-tree=$HOME'
+
