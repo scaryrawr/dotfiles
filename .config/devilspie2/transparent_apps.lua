@@ -1,7 +1,9 @@
 local target_apps = {
+	"Discord",
 	"Electron Fiddle",
 	"Geary",
 	"gedit",
+	"Mattermost",
 	"Messenger",
 	"Microsoft Teams",
 	"Skype",
