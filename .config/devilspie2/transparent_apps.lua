@@ -6,6 +6,7 @@ local target_apps = {
 	"Mattermost",
 	"Messenger",
 	"Microsoft Teams",
+	"Nautilus",
 	"Skype",
 	"Spotify",
 	"Sublime Merge",
