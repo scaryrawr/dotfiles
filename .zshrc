@@ -67,15 +67,12 @@ cat ~/.cache/wal/sequences
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-ZSH_TMUX_AUTOSTART=true
-
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	dnf
 	encode64
 	fzf
 	git
@@ -88,6 +85,7 @@ plugins=(
 	rust
 	systemd
 	tmux
+	ubuntu
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -126,5 +124,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Git Dotfiles
-alias config='/usr/bin/git --git-dir=$HOME/.gitdotfiles/ --work-tree=$HOME'
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+alias pip=pip3
+alias python=python3
 
