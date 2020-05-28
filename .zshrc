@@ -85,7 +85,7 @@ plugins=(
 	rust
 	systemd
 	tmux
-	ubuntu
+	dnf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -125,7 +125,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # Git Dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
-alias pip=pip3
-alias python=python3
 
