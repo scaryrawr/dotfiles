@@ -1,0 +1,64 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 25,
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["network", "pulseaudio", "backlight", "battery", "clock", "tray"],
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%B %d, %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["&#xf186;", "&#xf185;"],
+        "on-scroll-down": "light -U 1",
+        "on-scroll-up": "light -A 1"
+    },
+    "battery": {
+        "states": {
+            "good": 55,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% &#xf5e7;",
+        "format-plugged": "{capacity}% &#xf5e7;",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["&#xf244;", "&#xf243;", "&#xf242;", "&#xf241;", "&#xf240;"]
+    },
+    "network": {
+        "format-wifi": "{essid} ({signalStrength}%) &#xf1eb;",
+        "format-ethernet": "&#xf796;",
+        "format-linked": "{ifname} (No IP) &#xf6ff;",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon}&#xf294; {format_source}",
+        "format-bluetooth-muted": "&#xf6a9; {icon}&#xf294; {format_source}",
+        "format-muted": "&#xf6a9; {format_source}",
+        "format-source": "{volume}% &#xf3c9;",
+        "format-source-muted": "&#xf539;",
+        "format-icons": {
+            "headphone": "&#xf025;",
+            "hands-free": "&#xf590;",
+            "headset": "&#xf590;",
+            "phone": "&#xf095;",
+            "portable": "&#xf3cd;",
+            "car": "&#xf1b9;",
+            "default": ["&#xf026;", "&#xf027;", "&#xf028;"]
+        },
+        "on-click": "pavucontrol"
+    }
+}
