@@ -40,7 +40,8 @@
         "format-ethernet": "&#xf796;",
         "format-linked": "{ifname} (No IP) &#xf6ff;",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "gnome-control-center wifi"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -59,6 +60,6 @@
             "car": "&#xf1b9;",
             "default": ["&#xf026;", "&#xf027;", "&#xf028;"]
         },
-        "on-click": "pavucontrol"
+        "on-click": "gnome-control-center sound"
     }
 }
