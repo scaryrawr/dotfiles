@@ -26,7 +26,7 @@ bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 5
 # Multi-Function Keys
 bindsym --locked XF86WLAN exec [[ "$(nmcli radio wifi)" == "enabled" ]] && nmcli radio wifi off || nmcli radio wifi on
 bindsym --locked XF86Tools exec gnome-control-center
-bindsym --locked XF86Bluetooth exec gnome-control-center bluetooth
+bindsym --locked XF86Bluetooth exec [[ rfkill list bluetooth | grep -q 'yes$' ]] && rfkill unblock bluetooth || rfkill block bluetooth
 
 bindsym $mod+Shift+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
 
