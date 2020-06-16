@@ -16,6 +16,7 @@ bindsym --locked XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pacmd 
 bindsym --locked XF86AudioMicMute exec amixer set Capture toggle
 
 bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioStop exec playerctl stop
 bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
 
