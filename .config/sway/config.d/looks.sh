@@ -5,7 +5,7 @@
 # Opacity
 
 # Default Opacity when using opacity
-set $opacity 0.9
+set $opacity 0.95
 for_window [class="(Code)"] opacity $opacity
 
 # Gaps
