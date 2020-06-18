@@ -2,7 +2,7 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "Cascadia Code Mono PL", "Font Awesome 5 Free";
+    font-family: "Cascadia Code Mono PL";
     font-size: medium;
     min-height: 0;
 }
@@ -32,38 +32,49 @@ window#waybar {
     padding: 0 10px;
     margin: 0 5px;
     background: transparent;
+    font-family: "Font Awesome 5 Free";
     background-color: transparent;
     color: @foreground;
 }
 
 #mode {
+    font-family: "Font Awesome 5 Free";
 }
 
 #memory {
+    font-family: "Font Awesome 5 Free";
 }
 
 #temperature {
+    font-family: "Font Awesome 5 Free";
 }
 
 #network {
+    font-family: "Font Awesome 5 Free";
 }
 
 #clock {
+    font-family: "Font Awesome 5 Free";
 }
 
 #pulseaudio {
+    font-family: "Font Awesome 5 Free";
 }
 
 #pulseaudio.muted {
+    font-family: "Font Awesome 5 Free";
 }
 
 #pulseaudio.mic {
+    font-family: "Font Awesome 5 Free";
 }
 
 #battery {
+    font-family: "Font Awesome 5 Free";
 }
 
 #battery.charging {
+    font-family: "Font Awesome 5 Free";
 }
 
 @keyframes blink {
@@ -74,6 +85,7 @@ window#waybar {
 
 #battery.warning:not(.charging) {
     background: transparent;
+    font-family: "Font Awesome 5 Free";
     color: @foreground;
     animation-name: blink;
     animation-duration: 0.5s;

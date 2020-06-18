@@ -4,11 +4,12 @@
     "height": 25,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["network", "pulseaudio", "backlight", "battery", "clock", "tray"],
+    "modules-right": ["network", "pulseaudio", "backlight", "battery", "tray", "clock"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
+		"icon-size": 21,
         "spacing": 10
     },
     "clock": {
