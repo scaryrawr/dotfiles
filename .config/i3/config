@@ -46,17 +46,6 @@ exec --no-startup-id xset -b
 exec --no-startup-id picom -b
 exec --no-startup-id devilspie2 &
 
-
-#
-# Mouse settings
-#
-
-# Natural scroll
-exec --no-startup-id xinput set-prop 14 296 1
-
-# Tap to click
-exec --no-startup-id xinput set-prop 14 288 1
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
