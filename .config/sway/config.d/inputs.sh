@@ -36,3 +36,5 @@ input "2:14:ETPS/2_Elantech_Touchpad" {
     tap enabled
     natural_scroll enabled
 }
+
+exec --no-startup-id ibus-daemon --xim -d -r
