@@ -4,7 +4,7 @@
     "height": 25,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["network", "pulseaudio", "backlight", "battery", "tray", "clock"],
+    "modules-right": ["backlight", "pulseaudio", "memory", "cpu", "network", "temperature", "battery", "tray", "clock"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -36,6 +36,16 @@
         "format-alt": "{time} {icon}",
         "format-icons": ["&#xf244;", "&#xf243;", "&#xf242;", "&#xf241;", "&#xf240;"]
     },
+    "cpu": {
+        "interval": 10,
+        "format": "{}% &#xf2db;",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 30,
+        "format": "{}% &#xf538;",
+        "max-length": 10
+    },
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) &#xf1eb;",
         "format-ethernet": "&#xf796;",
@@ -62,5 +72,9 @@
             "default": ["&#xf026;", "&#xf027;", "&#xf028;"]
         },
         "on-click": "gnome-control-center sound"
+    },
+    "temperature": {
+        "format": "{temperatureC}°C {icon}",
+        "format-icons":["&#xf2c7;", "&#xf2c8;", "&#xf2c9;", "&#xf2ca;", "#xf2cb;"]
     }
 }
