@@ -37,4 +37,6 @@ input "2:14:ETPS/2_Elantech_Touchpad" {
     natural_scroll enabled
 }
 
-exec --no-startup-id ibus-daemon --xim -d -r
+exec ibus-daemon --xim -d -r
+
+bindsym $mod+space exec [[ "$(ibus engine)" == "xkb:us::eng" ]] && ibus engine libpinyin || ibus engine xkb:us::eng

@@ -4,7 +4,7 @@
     "height": 25,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["backlight", "pulseaudio", "memory", "cpu", "network", "temperature", "battery", "tray", "clock"],
+    "modules-right": ["backlight", "pulseaudio", "memory", "cpu", "network", "custom/keyboard", "temperature", "battery", "tray", "clock"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -16,6 +16,13 @@
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%B %d, %Y}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
+    },
+    "custom/keyboard": {
+        "exec": "[[ \"$(ibus engine)\" == \"xkb:us::eng\" ]] && echo 'en' || echo '中'",
+        "interval": 10,
+        "format": "{} &#xf11c;",
+        "on-click": "[[ \"$(ibus engine)\" == \"xkb:us::eng\" ]] && ibus engine libpinyin || ibus engine xkb:us::eng",
+        "tooltip": false
     },
     "backlight": {
         // "device": "acpi_video1",
@@ -47,7 +54,7 @@
         "max-length": 10
     },
     "network": {
-        "format-wifi": "{essid} ({signalStrength}%) &#xf1eb;",
+        "format-wifi": "{essid} &#xf1eb;",
         "format-ethernet": "&#xf796;",
         "format-linked": "{ifname} (No IP) &#xf6ff;",
         "format-disconnected": "Disconnected ⚠",
@@ -56,7 +63,7 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        "format": "{volume}% {icon}", // {format_source}",
         "format-bluetooth": "{volume}% {icon}&#xf294; {format_source}",
         "format-bluetooth-muted": "&#xf6a9; {icon}&#xf294; {format_source}",
         "format-muted": "&#xf6a9; {format_source}",
