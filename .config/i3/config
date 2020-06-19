@@ -62,7 +62,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
 # Caps to Ctrl
-exec --no-startup-id setxkbmap -option 'caps:ctrl_modifier'
+exec_always --no-startup-id setxkbmap -option 'caps:ctrl_modifier'
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -205,7 +205,7 @@ for_window [class=".*"] border pixel 1
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-exec --no-startup-id feh --bg-fill "$(< "${HOME}/.cache/wal/wal")"
+#exec --no-startup-id feh --bg-fill "$(< "${HOME}/.cache/wal/wal")"
 exec dunst --config ${HOME}/.config/dunstrc &
 
-exec_always --no-startup-id wal -R
+exec --no-startup-id ${HOME}/.local/bin/wal -R
