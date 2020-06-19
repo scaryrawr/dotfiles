@@ -61,6 +61,9 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
+# Caps to ctrl
+exec_always --no-startup-id setxkbmap -option 'caps:ctrl_modifier'
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
