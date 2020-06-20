@@ -1,7 +1,28 @@
 #!/bin/zsh
 
-# Toggle between English and Pinyin keyboards
-[[ \"$(ibus engine)\" == \"xkb:us::eng\" ]] && ibus engine libpinyin || ibus engine xkb:us::eng
+current=$(ibus engine)
+grabnext='false'
+next=''
+
+# Read ibus config for desired engine order
+engines=($(ibus read-config | grep engines-order | grep -oP "'([\d\w:]+)'" | grep -oP '[\d\w\n:]+'))
+for engine in $engines; do
+    if [ 'true' = $grabnext ]; then
+        next=$engine
+        break
+    fi
+
+    # The next engine in the list should be set
+    grabnext="$([[ $current == $engine ]] && echo true || echo false)"
+done
+
+# Handle loop around case where we were at the end of the engine list
+if [ '' = "$next" ]; then
+    next=${engines[1]}
+fi
+
+# Switch keyboard
+ibus engine $next
 
 # Signal waybar to update
 pkill -RTMIN+1 waybar
