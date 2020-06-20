@@ -39,4 +39,4 @@ input "2:14:ETPS/2_Elantech_Touchpad" {
 
 exec ibus-daemon --xim -d -r
 
-bindsym $mod+space exec [[ "$(ibus engine)" == "xkb:us::eng" ]] && ibus engine libpinyin || ibus engine xkb:us::eng
+bindsym $mod+space exec ${HOME}/.local/bin/nextkb

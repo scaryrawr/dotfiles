@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+# Toggle between English and Pinyin keyboards
+[[ \"$(ibus engine)\" == \"xkb:us::eng\" ]] && ibus engine libpinyin || ibus engine xkb:us::eng
+
+# Signal waybar to update
+pkill -RTMIN+1 waybar

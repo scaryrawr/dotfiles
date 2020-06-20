@@ -8,6 +8,9 @@
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
+    "sway/window": {
+        "max-length": 50
+    },
     "tray": {
 		"icon-size": 21,
         "spacing": 10
@@ -19,9 +22,10 @@
     },
     "custom/keyboard": {
         "exec": "[[ \"$(ibus engine)\" == \"xkb:us::eng\" ]] && echo 'en' || echo '中'",
-        "interval": 10,
+        "interval": "once",
+		"signal": 1,
         "format": "{} &#xf11c;",
-        "on-click": "[[ \"$(ibus engine)\" == \"xkb:us::eng\" ]] && ibus engine libpinyin || ibus engine xkb:us::eng",
+        "on-click": "~/.local/bin/nextkb",
         "tooltip": false
     },
     "backlight": {
