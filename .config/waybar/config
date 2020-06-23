@@ -53,7 +53,7 @@
         "max-length": 10
     },
     "memory": {
-        "interval": 30,
+        "interval": 10,
         "format": "{}% &#xf538;",
         "max-length": 10
     },
@@ -70,7 +70,7 @@
         "format": "{volume}% {icon}", // {format_source}",
         "format-bluetooth": "{volume}% {icon}&#xf294; {format_source}",
         "format-bluetooth-muted": "&#xf6a9; {icon}&#xf294; {format_source}",
-        "format-muted": "&#xf6a9; {format_source}",
+        "format-muted": "{volume}% &#xf6a9;",
         "format-source": "{volume}% &#xf3c9;",
         "format-source-muted": "&#xf539;",
         "format-icons": {
