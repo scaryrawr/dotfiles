@@ -2,18 +2,6 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color2 #f0f0f0
-
-# class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
-client.urgent           $bg     $bg     $fg  $bg       $bg
-client.placeholder      $bg     $bg     $fg  $bg       $bg
-
-client.background       $bg
-
 set $mod Mod4
 
 # Your preferred terminal emulator
@@ -61,8 +49,8 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
-# Caps to ctrl
-exec_always --no-startup-id setxkbmap -option 'caps:ctrl_modifier'
+# Printscreen
+bindsym $mod+Shift+Print exec --no-startup-id gnome-screenshot
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -182,16 +170,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym j resize shrink width 2 px or 2 ppt
+        bindsym k resize grow height 2 px or 2 ppt
+        bindsym l resize shrink height 2 px or 2 ppt
+        bindsym semicolon resize grow width 2 px or 2 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 2 px or 2 ppt
+        bindsym Down resize grow height 2 px or 2 ppt
+        bindsym Up resize shrink height 2 px or 2 ppt
+        bindsym Right resize grow width 2 px or 2 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -205,8 +193,7 @@ for_window [class=".*"] border pixel 1
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-#exec --no-startup-id feh --bg-fill "$(< "${HOME}/.cache/wal/wal")"
-exec dunst --config ${HOME}/.config/dunstrc &
+exec --no-startup-id dunst --config ${HOME}/.config/dunstrc
 
 exec --no-startup-id ${HOME}/.local/bin/wal -R
 
