@@ -21,7 +21,7 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "custom/keyboard": {
-        "exec": "[[ \"$(ibus engine)\" == \"xkb:us::eng\" ]] && echo 'en' || echo '中'",
+        "exec": "[[ \"$(ibus engine)\" == \"libpinyin\" ]] && echo '中' || echo 'en'",
         "interval": "once",
 		"signal": 1,
         "format": "{} &#xf11c;",
