@@ -10,5 +10,6 @@ for_window [class="(Code)"] opacity $opacity
 
 # Gaps
     smart_gaps on
-    gaps inner 4
-    gaps outer 2
+    gaps inner 8
+
+exec --no-startup-id ${HOME}/.local/bin/sway_inactive &
