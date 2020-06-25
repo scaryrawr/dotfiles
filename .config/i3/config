@@ -198,3 +198,7 @@ exec --no-startup-id dunst --config ${HOME}/.config/dunstrc
 exec --no-startup-id ${HOME}/.local/bin/wal -R
 
 exec --no-startup-id ibus-daemon --xim -d -r
+
+# Gaps
+    smart_gaps on
+    gaps inner 8
