@@ -2,7 +2,7 @@
 
 include "$HOME/.cache/wal/colors-sway"
 
-exec export XDG_CURRENT_DESKTOP=Unity
+exec --no-startup-id export XDG_CURRENT_DESKTOP=Unity
 
 ### Variables
 # Logo key. Use Mod1 for Alt.
@@ -49,3 +49,5 @@ include "./config.d/bar.sh"
 include "./config.d/looks.sh"
 
 include /etc/sway/config.d/*
+
+exec --no-startup-id wal -R

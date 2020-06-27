@@ -13,19 +13,41 @@ import signal
 import sys
 from functools import partial
 
-def on_window_focus(inactive_opacity, ipc, event):
+# Apps that should have transparency even when focused
+focused_transparent = [
+	"Discord",
+	"Electron Fiddle",
+	"Geary",
+	"gedit",
+	"Mattermost",
+	"Messenger",
+	"Microsoft Teams",
+	"Nautilus",
+	"Skype",
+	"Spotify",
+	"Sublime Merge",
+	"Sublime Text",
+	"System Monitor",
+	"Tweaks",
+	"Visual Studio Code"
+]
+
+def focused_opacity(name, special_opacity):
+    for app in focused_transparent:
+        if app in name:
+            return special_opacity
+    return "1"
+
+def on_window_focus(inactive_opacity, special_opacity, ipc, event):
     global prev_focused
-    global prev_workspace
 
     focused = event.container
     workspace = ipc.get_tree().find_focused().workspace().num
 
     if focused.id != prev_focused.id:  # https://github.com/swaywm/sway/issues/2859
-        focused.command("opacity 1")
-        if workspace == prev_workspace:
-            prev_focused.command("opacity " + inactive_opacity)
+        focused.command("opacity " + focused_opacity(focused.name, special_opacity))
+        prev_focused.command("opacity " + inactive_opacity)
         prev_focused = focused
-        prev_workspace = workspace
 
 
 def remove_opacity(ipc):
@@ -49,11 +71,18 @@ if __name__ == "__main__":
         default=transparency_val,
         help="set opacity value in range 0...1",
     )
+    parser.add_argument(
+        "--specialopacity",
+        "-s",
+        type=str,
+        default="0.95",
+        help="set special opacity value in range 0...1",
+    )
+
     args = parser.parse_args()
 
     ipc = i3ipc.Connection()
     prev_focused = None
-    prev_workspace = ipc.get_tree().find_focused().workspace().num
 
     for window in ipc.get_tree():
         if window.focused:
@@ -62,5 +91,5 @@ if __name__ == "__main__":
             window.command("opacity " + args.opacity)
     for sig in [signal.SIGINT, signal.SIGTERM]:
         signal.signal(sig, lambda signal, frame: remove_opacity(ipc))
-    ipc.on("window::focus", partial(on_window_focus, args.opacity))
+    ipc.on("window::focus", partial(on_window_focus, args.opacity, args.specialopacity))
     ipc.main()
