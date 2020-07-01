@@ -13,39 +13,36 @@ import signal
 import sys
 from functools import partial
 
-# Apps that should have transparency even when focused
+# Apps that should have *some* transparency even when focused
 focused_transparent = [
-	"Discord",
+	"discord",
 	"Electron Fiddle",
 	"Geary",
 	"gedit",
 	"Mattermost",
-	"Messenger",
+	"Caprine",
 	"Microsoft Teams",
 	"Nautilus",
 	"Skype",
 	"Spotify",
-	"Sublime Merge",
-	"Sublime Text",
-	"System Monitor",
-	"Tweaks",
-	"Visual Studio Code"
+	"Sublime_merge",
+	"sublime_text",
+	"gnome-system-monitor",
+	"gnome-tweaks",
+	"Code"
 ]
 
-def focused_opacity(name, special_opacity):
-    for app in focused_transparent:
-        if app in name:
-            return special_opacity
-    return "1"
+prev_focused = None
+
+def focused_opacity(names, special_opacity):
+    return special_opacity if any(any(name and app in name for name in names) for app in focused_transparent) else "1"
 
 def on_window_focus(inactive_opacity, special_opacity, ipc, event):
     global prev_focused
 
     focused = event.container
-    workspace = ipc.get_tree().find_focused().workspace().num
-
     if focused.id != prev_focused.id:  # https://github.com/swaywm/sway/issues/2859
-        focused.command("opacity " + focused_opacity(focused.name, special_opacity))
+        focused.command("opacity " + focused_opacity([focused.window_class, focused.app_id], special_opacity))
         prev_focused.command("opacity " + inactive_opacity)
         prev_focused = focused
 
@@ -59,8 +56,6 @@ def remove_opacity(ipc):
 
 
 if __name__ == "__main__":
-    transparency_val = "0.80"
-
     parser = argparse.ArgumentParser(
         description="This script allows you to set the transparency of unfocused windows in sway."
     )
@@ -68,21 +63,20 @@ if __name__ == "__main__":
         "--opacity",
         "-o",
         type=str,
-        default=transparency_val,
+        default="0.80",
         help="set opacity value in range 0...1",
     )
     parser.add_argument(
         "--specialopacity",
         "-s",
         type=str,
-        default="0.95",
+        default="0.90",
         help="set special opacity value in range 0...1",
     )
 
     args = parser.parse_args()
 
     ipc = i3ipc.Connection()
-    prev_focused = None
 
     for window in ipc.get_tree():
         if window.focused:
