@@ -15,7 +15,7 @@ def create_window_search_result(win):
     return "window: {}".format(win.name)
 
 def get_executable(search_term):
-    print(*map(lambda app: app.get_executable(), filter(lambda app: create_app_search_result(app).strip() == search_term, Gio.AppInfo.get_all())), sep="\n")
+    print(*map(lambda app: app.get_executable() if app.get_executable() != '/usr/bin/flatpak' else app.get_commandline(), filter(lambda app: create_app_search_result(app).strip() == search_term, Gio.AppInfo.get_all())), sep="\n")
 
 def list_apps():
     print(*map(create_app_search_result, filter(lambda app : app.should_show(), Gio.AppInfo.get_all())), sep="\n")
