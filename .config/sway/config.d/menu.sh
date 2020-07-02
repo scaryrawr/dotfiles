@@ -1,6 +1,6 @@
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-# set $menu dmenu_path | dmenu -b -i -fn 'Cascadia Code' -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15" | xargs swaymsg exec --
-set $menu rofi -show drun
-# set $menu wofi --show drun
+
+for_window [app_id="tofi"] floating enable, border pixel 2, sticky enable
+set $menu exec alacritty --class tofi -d 80 10 -e sh -c '$HOME/.config/sway/scripts/tofi | sort -u | fzf | xargs -I{} $HOME/.config/sway/scripts/tofi -l {} | xargs swaymsg exec --'
