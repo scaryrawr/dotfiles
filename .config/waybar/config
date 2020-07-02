@@ -25,7 +25,7 @@
         "interval": "once",
 		"signal": 1,
         "format": "{} &#xf11c;",
-        "on-click": "~/.local/bin/nextkb",
+        "on-click": "~/.config/sway/scripts/nextkb",
         "tooltip": false
     },
     "backlight": {
