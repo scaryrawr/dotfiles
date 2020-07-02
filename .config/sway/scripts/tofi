@@ -14,9 +14,8 @@ def create_app_search_result(app):
 def create_window_search_result(win):
     return "window: {}".format(win.name)
 
-def launch_item(search_term):
-    for app in filter(lambda app: create_app_search_result(app) == search_term, Gio.AppInfo.get_all()):
-        app.launch()
+def get_executable(search_term):
+    print(*map(lambda app: app.get_executable(), filter(lambda app: create_app_search_result(app).strip() == search_term, Gio.AppInfo.get_all())), sep="\n")
 
 def list_apps():
     print(*map(create_app_search_result, filter(lambda app : app.should_show(), Gio.AppInfo.get_all())), sep="\n")
@@ -32,7 +31,7 @@ def focus_app(search_term):
 if __name__ == "__main__":
     if not sys.stdin.isatty():
         for line in sys.stdin:
-            launch_item(line.strip())
+            get_executable(line.strip())
             focus_app(line.strip())
     else:
         list_apps()
