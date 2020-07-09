@@ -2,12 +2,14 @@
 
 locker=swaylock
 shot=grim
+nofork=
 
-while getopts "l:s:" opt
+while getopts "l:s:n" opt
 do
 	case "$opt" in
 		l) locker="$OPTARG";;
 		s) shot="$OPTARG";;
+		n) nofork="--nofork";;
 		\?) echo "Usage: $0 [-l (i3lock|swaylock)] [-s (grim|maim)]"
 			exit;;
 	esac
@@ -17,4 +19,5 @@ shift $(($OPTIND -1))
 img=/tmp/screenshot.png
 $shot $img 
 convert $img -blur 0x7 $img
-$locker -i $img && rm $img
+$locker -i $img $nofork
+rm $img
