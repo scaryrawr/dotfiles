@@ -1,13 +1,13 @@
 ### Key bindings
 # Basics:
     # Start a terminal
-    bindsym $mod+Return exec $term
+    bindsym $mod+Return exec --no-startup-id $term
 
     # Kill focused window
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+slash exec $menu
+    bindsym $mod+slash exec --no-startup-id $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -23,11 +23,7 @@
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
     # Lock Screen
-    bindsym $mod+Escape exec 'grim /tmp/screenshot.png && \
-                              convert /tmp/screenshot.png -blur 0x7 /tmp/blurshot.png && \
-                              rm /tmp/screenshot.png && \
-                              swaylock -i /tmp/blurshot.png && \
-                              rm /tmp/blurshot.png'
+    bindsym $mod+Escape exec '${HOME}/.local/bin/blurlock -l swaylock -s grim &'
 #
 # Moving around:
 #

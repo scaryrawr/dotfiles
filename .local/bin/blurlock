@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+locker=swaylock
+shot=grim
+
+while getopts "l:s:" opt
+do
+	case "$opt" in
+		l) locker="$OPTARG";;
+		s) shot="$OPTARG";;
+		\?) echo "Usage: $0 [-l (i3lock|swaylock)] [-s (grim|maim)]"
+			exit;;
+	esac
+done
+shift $(($OPTIND -1))
+
+img=/tmp/screenshot.png
+$shot $img 
+convert $img -blur 0x7 $img
+$locker -i $img && rm $img
