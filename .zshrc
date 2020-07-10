@@ -116,7 +116,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH=${PATH}:${HOME}/.cargo/bin:${HOME}/.local/bin:${HOME}/.dotnet/tools
+export PATH=${PATH}:${HOME}/.cargo/bin:${HOME}/.local/bin:${HOME}/.dotnet/tools:/home/mike/GitHub/emsdk:/home/mike/GitHub/emsdk/upstream/emscripten
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
