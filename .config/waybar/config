@@ -82,7 +82,7 @@
             "car": "&#xf1b9;",
             "default": ["&#xf026;", "&#xf027;", "&#xf028;"]
         },
-        "on-click": "gnome-control-center sound"
+        "on-click": "pavucontrol"
     },
     "temperature": {
         "format": "{temperatureC}°C {icon}",
