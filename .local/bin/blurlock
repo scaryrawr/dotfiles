@@ -3,6 +3,7 @@
 locker=swaylock
 shot=grim
 nofork=
+corrupter="corrupter -mag 4 -boffset 15"
 
 while getopts "l:s:n" opt
 do
@@ -16,8 +17,23 @@ do
 done
 shift $(($OPTIND -1))
 
-img=/tmp/screenshot.png
-$shot $img 
-convert $img -blur 0x7 $img
-$locker -i $img $nofork
-rm $img
+if [ "$locker" == "swaylock" ]; then
+	lockargs=""
+	cleanargs=""
+	for output in `swaymsg -t get_outputs | jq -r '.[] | select(.active == true) | .name'`; do
+		img=/tmp/$output-shot.png
+		$shot -o $output $img
+		$corrupter $img $img
+		lockargs="$lockargs --image $output:$img"
+		cleanargs="$cleanargs $img"
+	done
+
+	$locker $lockargs
+	rm $cleanargs
+else
+	img=/tmp/screenshot.png
+	$shot $img 
+	$corrupter $img $img
+	$locker -i $img $nofork
+	rm $img
+fi
