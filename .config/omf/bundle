@@ -1,0 +1,5 @@
+package foreign-env
+package fzf
+package nvm
+theme agnoster
+theme default
