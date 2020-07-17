@@ -205,4 +205,4 @@ exec --no-startup-id ibus-daemon --xim -d -r
     gaps inner 8
 
 no_focus [title="Microsoft Teams Notification"]
-for_window [title="Microsoft Teams Notification"] floating enabled
+for_window [title="Microsoft Teams Notification"] floating enable
