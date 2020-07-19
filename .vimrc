@@ -6,6 +6,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'dag/vim-fish'
 Plugin 'dylanaraps/wal.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'ervandew/supertab'
