@@ -38,11 +38,12 @@
     },
 	"custom/playerctl": {
 		"exec": "~/.local/bin/whatsplaying",
-		"exec-if": "~/.local/bin/whatsplaying -c",
-		"interval": "15",
-		"on-click": "playerctl next",
-		"on-click-right": "playerctl previous",
-		"on-click-middle": "playerctl play-pause",
+		"exec-if": "~/.local/bin/whatsplaying",
+		"interval": 15,
+		"signal": 3,
+		"on-click": "playerctl next && pkill -RTMIN+3 waybar",
+		"on-click-right": "playerctl previous && pkill -RTMIN+3 waybar",
+		"on-click-middle": "playerctl play-pause && pkill -RTMIN+3 waybar",
 		"tooltip": false,
 		"format": "&#xf025; {}"
 	},
