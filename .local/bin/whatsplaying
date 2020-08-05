@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+
+check=0
+
+while getopts "c" opt
+do
+	case "$opt" in
+		c) check=1;;
+	esac
+done
+
+if [ $check -eq 1 ]; then
+	timeout 1 playerctl metadata &> /dev/null
+	exit $?	
+fi
+
+format='{{title}} - {{artist}}'
+timeout 1 playerctl metadata -f "$format"
