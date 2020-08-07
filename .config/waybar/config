@@ -39,11 +39,10 @@
 	"custom/playerctl": {
 		"exec": "~/.local/bin/whatsplaying",
 		"exec-if": "~/.local/bin/whatsplaying",
-		"interval": 15,
 		"signal": 3,
-		"on-click": "playerctl next && sleep 1 && pkill -RTMIN+3 waybar &",
-		"on-click-right": "playerctl previous && sleep 1 && pkill -RTMIN+3 waybar &",
-		"on-click-middle": "playerctl play-pause && sleep 1 && pkill -RTMIN+3 waybar &",
+		"on-click": "playerctl next",
+		"on-click-right": "playerctl previous",
+		"on-click-middle": "playerctl play-pause",
 		"tooltip": false,
 		"format": " &#xf025; {}"
 	},
