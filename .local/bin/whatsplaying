@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 __ScriptVersion="0.1.0"
 
@@ -49,7 +49,15 @@ exitinfo=$?
 if [[ $exitinfo == 0 ]]; then
   echo $trackinfo
   if [[ $notify == 1 ]]; then
-    notify-send -i audio-headphones "$(echo $trackinfo | cut -d'|' -f2 | sed 's/^\s//g')" "$(echo $trackinfo | cut -d'|' -f1 | sed 's/\s\$//g')"
+    artist=$(echo $trackinfo | cut -d'|' -f2 | sed 's/^\s//g')
+    song=$(echo $trackinfo | cut -d'|' -f1 | sed 's/\s\$//g')
+    icon=$(timeout 2 playerctl metadata mpris:artUrl)
+    if [[ $? == 0 ]]; then
+      curl $icon > /tmp/playing.png
+      notify-send -i /tmp/playing.png "$artist" "$song"
+    else
+      notify-send -i audio-headphones "$artist" "$song"
+    fi
   fi
 fi
 exit $exitinfo
