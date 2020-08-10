@@ -33,7 +33,6 @@ exec --no-startup-id xss-lock -l  -- ${HOME}/.local/bin/blurlock -l i3lock -s ma
 exec --no-startup-id xset -b
 
 exec --no-startup-id picom -b
-exec --no-startup-id devilspie2 &
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
