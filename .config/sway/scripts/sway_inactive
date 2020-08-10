@@ -29,7 +29,8 @@ focused_transparent = [
 	"sublime_text",
 	"gnome-system-monitor",
 	"gnome-tweaks",
-	"Code"
+	"Code",
+        "URxvt"
 ]
 
 prev_focused = None

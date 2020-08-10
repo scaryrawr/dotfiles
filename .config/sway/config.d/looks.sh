@@ -4,7 +4,7 @@
 
 # Gaps
     smart_gaps on
-    gaps inner 8
+    gaps inner 24
 
 exec --no-startup-id ${HOME}/.config/sway/scripts/sway_inactive &
 

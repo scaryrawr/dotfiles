@@ -1,0 +1,8 @@
+URxvt*font: xft:Cascadia Code PL:pixelsize=16:antialias=true
+URxvt*scrollBar: false
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0200/c800
+URxvt.perl-ext-common: default,clipboard,matcher
+URxvt.clipboard.autocopy: true
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
