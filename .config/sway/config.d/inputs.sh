@@ -35,6 +35,7 @@ input "2:14:ETPS/2_Elantech_Touchpad" {
     dwt enabled
     tap enabled
     natural_scroll enabled
+    middle_emulation enabled
 }
 
 exec --no-startup-id ibus-daemon --xim -d -r
