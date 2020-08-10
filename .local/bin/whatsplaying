@@ -44,7 +44,7 @@ done
 shift $(($OPTIND-1))
 
 format='{{title}} | {{artist}}'
-trackinfo=$(timeout 1 playerctl metadata -f "$format")
+trackinfo=$(timeout 2 playerctl metadata -f "$format")
 exitinfo=$?
 if [[ $exitinfo == 0 ]]; then
   echo $trackinfo
