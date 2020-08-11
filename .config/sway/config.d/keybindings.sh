@@ -1,13 +1,13 @@
 ### Key bindings
 # Basics:
     # Start a terminal
-    bindsym $mod+Return exec --no-startup-id $term
+    bindsym $mod+Return exec $term
 
     # Kill focused window
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+slash exec --no-startup-id $menu
+    bindsym $mod+slash exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
