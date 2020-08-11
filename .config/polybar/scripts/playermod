@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+~/.local/bin/whatsplaying
+
+while [[ 1 == 1 ]]; do
+  sleep 1
+done
+

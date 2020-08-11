@@ -34,7 +34,7 @@ do
 
 	n|notify   ) notify=1 ;;
 
-	s|signal   ) pkill -RTMIN+3 waybar ;;
+	s|signal   ) pkill -RTMIN+3 waybar; pkill -f playermod ;;
 
 	* )  echo -e "\n  Option does not exist : $OPTARG\n"
 		  usage; exit 1   ;;
