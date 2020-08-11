@@ -80,7 +80,7 @@
         "format-linked": "{ifname} (No IP) &#xf6ff;",
         "format-disconnected": "Disconnected ⚠",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
-        "on-click": "gnome-control-center wifi"
+        "on-click": "nm-connection-editor"
     },
     "pulseaudio": {
         "format": "{volume}% {icon}",
