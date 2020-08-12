@@ -17,6 +17,7 @@
   --mff-tab-height: 32px;
   --mff-tab-pinned-bg: {color3};
   --mff-tab-selected-bg: {color5};
+  --mff-tab-selected-color: {color15};
   --mff-tab-soundplaying-bg: {color2};
   --mff-urlbar-color: {foreground};
   --mff-urlbar-focused-color: {foreground};
@@ -79,6 +80,13 @@
 
 .tab-close-button {{
  display: none !important;
+}}
+
+.tab-text[selected="true"] {{
+  font-family: var(--mff-tab-font-family);
+  font-weight: var(--mff-tab-font-weight);
+  font-size: var(--mff-tab-font-size) !important;
+  color: var(--mff-tab-selected-color);
 }}
 
 .tab-text {{
