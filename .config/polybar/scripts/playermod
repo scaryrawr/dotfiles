@@ -2,7 +2,13 @@
 
 ~/.local/bin/whatsplaying
 
-while [[ 1 == 1 ]]; do
+if [[ $? != 0 ]]; then
+  echo ''
+fi
+
+timing=0
+while [[ $timing -le 60 ]]; do
   sleep 1
+  ((timing+=1))
 done
 
