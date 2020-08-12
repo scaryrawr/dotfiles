@@ -1,9 +1,9 @@
-#!/usr/bin/env fish
+#!/usr/bin/env sh
 
-if rfkill list bluetooth | rg -q 'yes$'
+if rfkill list bluetooth | rg -q 'yes$'; then
 	rfkill unblock bluetooth
 else
 	rfkill block bluetooth
-end
+fi
 
 pkill -RTMIN+2 waybar
