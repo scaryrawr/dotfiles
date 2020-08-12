@@ -16,8 +16,8 @@
   --mff-tab-font-weight: 400;
   --mff-tab-height: 32px;
   --mff-tab-pinned-bg: {color3};
-  --mff-tab-selected-bg: {color6};
-  --mff-tab-soundplaying-bg: {color5};
+  --mff-tab-selected-bg: {color5};
+  --mff-tab-soundplaying-bg: {color2};
   --mff-urlbar-color: {foreground};
   --mff-urlbar-focused-color: {foreground};
   --mff-urlbar-font-family: "Cantarell", serif;
