@@ -29,6 +29,7 @@
     },
     "custom/bluetooth": {
         "exec": "rfkill list bluetooth | rg -q 'yes$' && echo '&#xf294;' || echo '&#xf293;'",
+		"exec-if": "~/.local/bin/bluetooth-enabled",
         "format": "{} ",
         "signal": 2,
         "interval": 45,
