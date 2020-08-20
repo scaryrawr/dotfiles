@@ -14,7 +14,7 @@ you can just have it believe everything is locally modified and then abandoning 
 
 ```sh
 git clone --bare git@github.com:scaryrawr/dotfiles $HOME/.dotfiles
-alias config='git --git-dir=$HOME/.dotfiles --work-tree=$HOME
+alias config='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
 config reset
 config checkout .
