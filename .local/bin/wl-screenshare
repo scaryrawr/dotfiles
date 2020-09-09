@@ -1,0 +1,1 @@
+wf-recorder --muxer=v4l2 --codec=rawvideo --file=/dev/video4 -x yuv420p
