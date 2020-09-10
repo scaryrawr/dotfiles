@@ -5,10 +5,14 @@
 set $mod Mod4
 
 # Your preferred terminal emulator
-set $term alacritty
+# set $term alacritty
+set $term urxvt
 
 for_window [instance="tofi"] floating enable, border pixel 2, sticky enable
-set $menu exec alacritty --title tofi --class tofi -d 80 10 -e sh -c '${HOME}/GitHub/tofi/tofi', sticky enable
+#set $menu exec alacritty --title tofi --class tofi -d 80 10 -e sh -c '${HOME}/GitHub/tofi/tofi', sticky enable
+set $menu exec urxvt -title tofi -name tofi -geometry 80x10 -e sh -c '${HOME}/GitHub/tofi/tofi', sticky enable
+
+exec --no-startup-id ~/.local/bin/smartfloat tofi &
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -209,3 +213,5 @@ exec --no-startup-id ~/.config/i3/scripts/start-bt-tray &
 
 no_focus [title="Microsoft Teams Notification"]
 for_window [title="Microsoft Teams Notification"] floating enable
+
+popup_during_fullscreen leave_fullscreen
