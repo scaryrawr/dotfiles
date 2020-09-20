@@ -24,6 +24,11 @@
 
     # Lock Screen
     bindsym $mod+Escape exec '${HOME}/.local/bin/blurlock -l swaylock -s grim &'
+
+    # Screen shot
+    bindsym $mod+Shift+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
+    bindsym $mod+Shift+s exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
+
 #
 # Moving around:
 #

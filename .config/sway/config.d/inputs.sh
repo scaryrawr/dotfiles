@@ -29,7 +29,6 @@ bindsym --locked XF86WLAN exec [[ "$(nmcli radio wifi)" == "enabled" ]] && nmcli
 bindsym --locked XF86Tools exec gnome-control-center
 bindsym --locked XF86Bluetooth exec ~/.local/bin/togglebt
 
-bindsym $mod+Shift+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
 
 input "2:14:ETPS/2_Elantech_Touchpad" {
     dwt enabled
@@ -41,3 +40,4 @@ input "2:14:ETPS/2_Elantech_Touchpad" {
 exec ibus-daemon --xim -d -r
 
 bindsym $mod+space exec ${HOME}/.config/sway/scripts/nextkb
+
