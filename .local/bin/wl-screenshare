@@ -1,1 +1,57 @@
-wf-recorder --muxer=v4l2 --codec=rawvideo --file=/dev/video4 -x yuv420p
+#!/usr/bin/env sh
+
+__ScriptVersion="0.1.0"
+
+#===  FUNCTION  ================================================================
+#         NAME:  usage
+#  DESCRIPTION:  Display usage information.
+#===============================================================================
+function usage ()
+{
+	echo "Usage :  $0 [options] [--]
+
+    Options:
+    -q|quit       Kill instances of wf-recorder that are running
+    -s|selected   Share the selected portion of the screen
+    -h|help       Display this message
+    -v|version    Display script version"
+
+}    # ----------  end of function usage  ----------
+
+selection=''
+quit=''
+#-----------------------------------------------------------------------
+#  Handle command line arguments
+#-----------------------------------------------------------------------
+while getopts ":hvsq" opt
+do
+  case $opt in
+
+	q|quit     ) quit="quit" ;;
+
+	s|selected ) selection=`slurp` ;;
+
+	h|help     )  usage; exit 0   ;;
+
+	v|version  )  echo "$0 -- Version $__ScriptVersion"; exit 0   ;;
+
+	* )  echo -e "\n  Option does not exist : $OPTARG\n"
+		  usage; exit 1   ;;
+
+  esac    # --- end of case ---
+done
+shift $(($OPTIND-1))
+
+killall wf-recorder
+
+if [ "$quit" == "quit" ]; then
+  exit 0
+fi
+
+
+device=$(v4l2-ctl --list-devices | awk '/wfrecord/ { getline;$1=$1;print }')
+if [ "$selection" == "" ]; then
+  wf-recorder --muxer=v4l2 --codec=rawvideo --file=$device -x yuv420p
+else
+  wf-recorder --geometry="$selection" --muxer=v4l2 --codec=rawvideo --file=$device -x yuv420p
+fi
