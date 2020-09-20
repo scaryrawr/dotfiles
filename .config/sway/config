@@ -2,7 +2,8 @@
 
 include "$HOME/.cache/wal/colors-sway"
 
-exec export XDG_CURRENT_DESKTOP=Unity
+exec export XDG_SESSION_TYPE=wayland
+exec export XDG_CURRENT_DESKTOP=sway
 
 ### Variables
 # Logo key. Use Mod1 for Alt.
