@@ -12,19 +12,22 @@ function usage ()
 
     Options:
     -n|notify     Flag to send notification
-    -s|signal     Flag waybar to update display
+    -p|player     Player instance to use
+    -s|signal     Flag waybar or polybar to update display
     -h|help       Display this message
     -v|version    Display script version"
 
 }    # ----------  end of function usage  ----------
 
 notify=0
+signal=0
+player=''
 
 #-----------------------------------------------------------------------
 #  Handle command line arguments
 #-----------------------------------------------------------------------
 
-while getopts ":hvsn" opt
+while getopts ":hvsnp:" opt
 do
   case $opt in
 
@@ -34,7 +37,9 @@ do
 
 	n|notify   ) notify=1 ;;
 
-	s|signal   ) pkill -RTMIN+3 waybar; pkill -f playermod ;;
+	p|player   ) player="$OPTARG" ;;
+
+	s|signal   ) signal=1 ;;
 
 	* )  echo -e "\n  Option does not exist : $OPTARG\n"
 		  usage; exit 1   ;;
@@ -43,21 +48,32 @@ do
 done
 shift $(($OPTIND-1))
 
-format='{{title}} | {{artist}}'
-trackinfo=$(timeout 2 playerctl metadata -f "$format")
+if [[ $signal == 1 ]]; then
+  pkill -RTMIN+3 waybar
+  pkill -f playermod
+fi
+
+if timeout 1 playerctl --player="$player" status | rg -qv Playing; then
+  echo ''
+  exit 0
+fi
+
+format='{{title}}|{{artist}}|{{mpris:artUrl}}'
+trackinfo=$(timeout 2 playerctl --player="$player" metadata -f "$format")
 exitinfo=$?
 if [[ $exitinfo == 0 ]]; then
-  echo $trackinfo
+  OLDIFS=$IFS
+  IFS='|' read -r -A infoarr <<< "$trackinfo"
+  IFS="$OLDIFS"
+  echo "${infoarr[1]} | ${infoarr[2]}"
   if [[ $notify == 1 ]]; then
-    artist=$(echo $trackinfo | cut -d'|' -f2 | sed 's/^\s//g')
-    song=$(echo $trackinfo | cut -d'|' -f1 | sed 's/\s\$//g')
-    icon=$(timeout 2 playerctl metadata mpris:artUrl)
-    if [[ $? == 0 ]]; then
-      curl $icon > /tmp/playing.png
-      notify-send -i /tmp/playing.png "$artist" "$song"
+    if [[ $"${infoarr[3]}" != "" ]]; then
+      curl "${infoarr[3]}" > /tmp/playing.png
+      notify-send -i /tmp/playing.png "${infoarr[2]}" "${infoarr[1]}"
     else
-      notify-send -i audio-headphones "$artist" "$song"
+      notify-send -i audio-headphones "${infoarr[2]}" "${infoarr[1]}"
     fi
   fi
 fi
+
 exit $exitinfo
