@@ -29,6 +29,10 @@
     bindsym $mod+Shift+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
     bindsym $mod+Shift+s exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
 
+    # Project screen
+    bindsym $mod+p exec '${HOME}/.local/bin/wl-screenshare -s'
+    bindsym $mod+Shift+p exec '${HOME}/.local/bin/wl-screenshare -q'
+
 #
 # Moving around:
 #
