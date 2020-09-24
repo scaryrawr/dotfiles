@@ -5,7 +5,10 @@ grabnext='false'
 next=''
 
 # Read ibus config for desired engine order
-engines=($(ibus read-config | rg engines-order | rg -oP "'([\d\w:]+)'" | rg -oP '[\d\w\n:]+'))
+IFSOLD=$IFS
+IFS=','
+engines=($(ibus read-config | awk -F'[][]' $'/engines-order/ {gsub(/[\' ]/, "", $2); print $2}'))
+IFS=$IFSOLD
 for engine in $engines; do
     if [ 'true' = $grabnext ]; then
         next=$engine
