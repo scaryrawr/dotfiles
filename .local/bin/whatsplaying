@@ -10,10 +10,11 @@ function usage ()
 {
 	echo "Usage :  $0 [options] [--]
 
+	Used to track what's playing, will output current track info to ~/.cache/whatsplaying.txt
+
     Options:
     -n|notify     Flag to send notification
     -p|player     Player instance to use
-    -s|signal     Flag waybar or polybar to update display
     -h|help       Display this message
     -v|version    Display script version"
 
@@ -48,16 +49,6 @@ do
 done
 shift $(($OPTIND-1))
 
-if [[ $signal == 1 ]]; then
-  pkill -RTMIN+3 waybar
-  pkill -f playermod
-fi
-
-if timeout 1 playerctl --player="$player" status | rg -qv Playing; then
-  echo ''
-  exit 0
-fi
-
 format='{{title}}|{{artist}}|{{mpris:artUrl}}'
 trackinfo=$(timeout 2 playerctl --player="$player" metadata -f "$format")
 exitinfo=$?
@@ -65,7 +56,7 @@ if [[ $exitinfo == 0 ]]; then
   OLDIFS=$IFS
   IFS='|' read -r -A infoarr <<< "$trackinfo"
   IFS="$OLDIFS"
-  echo "${infoarr[1]} | ${infoarr[2]}"
+  echo "${infoarr[1]} | ${infoarr[2]}" | tee ~/.cache/whatsplaying.txt
   if [[ $notify == 1 ]]; then
     if [[ $"${infoarr[3]}" != "" ]]; then
       curl "${infoarr[3]}" > /tmp/playing.png
