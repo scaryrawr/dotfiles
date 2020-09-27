@@ -49,6 +49,11 @@ do
 done
 shift $(($OPTIND-1))
 
+if timeout 1 playerctl --player="$player" status | rg -qv Playing; then
+  echo '' | tee ~/.cache/whatsplaying.txt
+  exit 0
+fi
+
 format='{{title}}|{{artist}}|{{mpris:artUrl}}'
 trackinfo=$(timeout 2 playerctl --player="$player" metadata -f "$format")
 exitinfo=$?
