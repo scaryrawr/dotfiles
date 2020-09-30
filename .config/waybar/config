@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     "height": 25,
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/spotifyd"],
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/playerctl"],
     "modules-center": ["sway/window"],
     "modules-right": ["backlight", "pulseaudio", "memory", "cpu", "network", "custom/bluetooth", "custom/keyboard", "temperature", "battery", "tray", "clock"],
     "sway/mode": {
@@ -37,8 +37,10 @@
 		"on-click-right": "~/.local/bin/togglebt",
         "tooltip": false
     },
-	"custom/spotifyd": {
-		"exec": "tail ~/.cache/whatsplaying.txt -f 2> /dev/null",
+	"custom/playerctl": {
+		"exec": "~/.local/bin/whatsplaying",
+		"exec-if": "~/.local/bin/whatsplaying",
+		"signal": 3,
 		"on-click": "playerctl next",
 		"on-click-right": "playerctl previous",
 		"on-click-middle": "playerctl play-pause",
