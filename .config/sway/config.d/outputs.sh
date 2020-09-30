@@ -4,4 +4,4 @@
 output * bg $wallpaper fill
 
 output eDP-1 resolution 1920x1080 position 0,0
-output DP-2 resolution 2560x1440 position 1920,0
+output DP-2 resolution 3840x1600 position 1920,0
