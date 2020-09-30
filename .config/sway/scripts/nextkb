@@ -7,7 +7,7 @@ next=''
 # Read ibus config for desired engine order
 IFSOLD=$IFS
 IFS=','
-engines=($(ibus read-config | awk -F'[][]' $'/engines-order/ {gsub(/[\' ]/, "", $2); print $2}'))
+engines=($(ibus read-config | awk -F'[][]' $'/preload-engines/ {gsub(/[\' ]/, "", $2); print $2}'))
 IFS=$IFSOLD
 for engine in $engines; do
     if [ 'true' = $grabnext ]; then
