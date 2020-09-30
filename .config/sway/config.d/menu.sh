@@ -6,4 +6,4 @@
 #set $menu exec alacritty  --title tofi --class tofi -d 80 10 -e sh -c '${HOME}/GitHub/tofi/tofi', sticky enable
 for_window [instance="tofi"] floating enable, border pixel 2, sticky enable
 set $menu exec urxvt  -title tofi -name tofi -geometry 80x10 -e sh -c '${HOME}/GitHub/tofi/tofi', sticky enable
-exec ~/.local/bin/smartfloat tofi &
+exec ~/.local/bin/smartfloat tofi
