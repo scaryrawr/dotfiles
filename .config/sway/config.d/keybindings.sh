@@ -26,8 +26,8 @@
     bindsym $mod+Escape exec '${HOME}/.local/bin/blurlock -l swaylock -s grim &'
 
     # Screen shot
-    bindsym $mod+Shift+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
-    bindsym $mod+Shift+s exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
+    bindsym $mod+Shift+Print exec grim -g "$(slurp)" /dev/stdout | tee $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png') | wl-copy -t image/png
+    bindsym $mod+Shift+s exec grim -g "$(slurp)" /dev/stdout | tee $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png') | wl-copy -t image/png
 
     # Project screen
     bindsym $mod+p exec '${HOME}/.local/bin/wl-screenshare -s'

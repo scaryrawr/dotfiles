@@ -54,8 +54,8 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
 # Printscreen
-bindsym $mod+Shift+Print exec --no-startup-id maim -s $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_maim.png')
-bindsym $mod+Shift+s exec --no-startup-id maim -s $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_maim.png')
+bindsym $mod+Shift+Print exec --no-startup-id maim -s /dev/stdout | tee $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_maim.png') | xclip -selection clipboard -t image/png -i
+bindsym $mod+Shift+s exec --no-startup-id maim -s /dev/stdout | tee $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_maim.png') | xclip -selection clipboard -t image/png -i
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
