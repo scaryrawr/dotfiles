@@ -57,3 +57,5 @@
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
+for_window [app_id="org.remmina.Remmina"] shortcuts_inhibitor enable
