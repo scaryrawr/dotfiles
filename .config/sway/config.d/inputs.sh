@@ -25,9 +25,9 @@ bindsym --locked XF86MonBrightnessUp exec light -A 5
 bindsym --locked XF86MonBrightnessDown exec light -U 5
 
 # Multi-Function Keys
-bindsym --locked XF86WLAN exec [[ "$(nmcli radio wifi)" == "enabled" ]] && nmcli radio wifi off || nmcli radio wifi on
+#bindsym --locked XF86WLAN exec [[ "$(nmcli radio wifi)" == "enabled" ]] && nmcli radio wifi off || nmcli radio wifi on
 bindsym --locked XF86Tools exec gnome-control-center
-bindsym --locked XF86Bluetooth exec ~/.local/bin/togglebt
+bindsym --locked XF86Bluetooth exec sleep 1 && pkill -RTMIN+2 waybar
 
 
 input "2:14:ETPS/2_Elantech_Touchpad" {
