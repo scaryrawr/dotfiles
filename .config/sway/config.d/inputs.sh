@@ -15,10 +15,10 @@ bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume $(pacmd list-si
 bindsym --locked XF86AudioMute exec pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
 bindsym --locked XF86AudioMicMute exec amixer set Capture toggle
 
-bindsym --locked XF86AudioPlay exec playerctl play-pause
-bindsym --locked XF86AudioStop exec playerctl stop
-bindsym --locked XF86AudioNext exec playerctl next
-bindsym --locked XF86AudioPrev exec playerctl previous
+bindsym --locked XF86AudioPlay exec timeout 2 playerctl play-pause; pkill -SIGRTMIN+3 waybar
+bindsym --locked XF86AudioStop exec timeout 2 playerctl stop; pkill -SIGRTMIN+3 waybar
+bindsym --locked XF86AudioNext exec timeout 2 playerctl next; pkill -SIGRTMIN+3 waybar
+bindsym --locked XF86AudioPrev exec timeout 2 playerctl previous; pkill -SIGRTMIN+3 waybar
 
 # Brightness controls
 bindsym --locked XF86MonBrightnessUp exec light -A 5
