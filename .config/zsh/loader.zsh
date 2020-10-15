@@ -1,5 +1,5 @@
 CONFIG_DIRS=(
-	~/.config/zsh/config.d
+	~/.config/zsh/conf.d
 	~/.config/zsh/functions
 )
 
