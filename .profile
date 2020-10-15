@@ -1,8 +1,21 @@
-PATH="$PATH:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.dotnet/tools:$HOME/GitHub/emsdk:$HOME/GitHub/emsdk/upstream/emscripten"
 NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+if [ -d "$HOME/.cargo/bin" ]; then
+	PATH="$PATH:$HOME/.cargo/bin"
+fi
+
+if [ -d "$HOME/.local/bin" ]; then
+	PATH="$PATH:$HOME/.local/bin"
+fi
+
+if [ -d "$HOME/.dotnet/tools" ]; then
+	PATH="$PATH:$HOME/.dotnet/tools"
+fi
+
+[ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh"
 
 if [ -n "$DESKTOP_SESSION" ]; then
 	eval $(gnome-keyring-daemon --start)
 	export SSH_AUTH_SOCK
 fi
+
