@@ -1,1 +1,1 @@
-status --is-interactive; and cat ~/.cache/wal/sequences
+/home/mike/.cache/wal/colors.fish

@@ -1,3 +1,14 @@
-set PATH $PATH $HOME/.cargo/bin $HOME/.local/bin $HOME/.dotnet/tools $HOME/GitHub/emsdk $HOME/GitHub/emsdk/upstream/emscripten
+if test -d $HOME/.local/bin
+  set PATH $PATH $HOME/.local/bin
+end
+
+if test -d $HOME/.cargo/bin
+  set PATH $PATH $HOME/.cargo/bin
+end
+
+if test -d $HOME/.dotnet/tools
+  set PATH $PATH $HOME/.dotnet/tools
+end
+
 set NPM_DIR (which npm)
 set NPM_DIR (dirname $NPM_DIR)
