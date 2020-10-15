@@ -27,7 +27,7 @@ bindsym --locked XF86MonBrightnessDown exec light -U 5
 # Multi-Function Keys
 #bindsym --locked XF86WLAN exec [[ "$(nmcli radio wifi)" == "enabled" ]] && nmcli radio wifi off || nmcli radio wifi on
 bindsym --locked XF86Tools exec gnome-control-center
-bindsym --locked XF86Bluetooth exec sleep 1 && pkill -RTMIN+2 waybar
+bindsym --locked XF86Bluetooth exec sleep 1 && pkill -SIGRTMIN+2 waybar
 
 
 input "2:14:ETPS/2_Elantech_Touchpad" {
@@ -37,7 +37,7 @@ input "2:14:ETPS/2_Elantech_Touchpad" {
     middle_emulation enabled
 }
 
-exec ibus-daemon --xim -d -r
+exec ibus-daemon -xdr
 
-bindsym $mod+space exec ${HOME}/.config/sway/scripts/nextkb
+bindsym $mod+space exec ${HOME}/.local/bin/nextkb
 

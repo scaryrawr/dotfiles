@@ -27,5 +27,4 @@ fi
 # Switch keyboard
 ibus engine $next
 
-# Signal waybar to update
-pkill -RTMIN+1 waybar
+pgrep waybar > /dev/null && pkill -SIGRTMIN+1 waybar

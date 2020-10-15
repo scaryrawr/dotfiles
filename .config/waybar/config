@@ -20,11 +20,12 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "custom/keyboard": {
-        "exec": "[[ \"$(ibus engine)\" == \"libpinyin\" ]] && echo '中' || echo 'en'",
+        "exec": "ibus engine | rg -q libpinyin && echo '中' || echo 'en'",
         "interval": "once",
-		"signal": 1,
-        "format": "{} &#xf11c;",
-        "on-click": "~/.config/sway/scripts/nextkb",
+        "signal": 1,
+        "format": " {} &#xf11c;",
+        "on-click": "~/.local/bin/nextkb",
+        "on-click-right": "ibus-setup",
         "tooltip": false
     },
     "custom/bluetooth": {
