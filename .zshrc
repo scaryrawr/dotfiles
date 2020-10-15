@@ -1,4 +1,4 @@
-cat ~/.cache/wal/sequences
+source ~/.config/zsh/loader.zsh
 
 export ZSH="/home/mike/.oh-my-zsh"
 
@@ -26,8 +26,3 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Git Dotfiles
-alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
