@@ -49,4 +49,6 @@ include "./config.d/looks.sh"
 
 include /etc/sway/config.d/*
 
+exec nm-applet --indicator
+
 exec wal -R

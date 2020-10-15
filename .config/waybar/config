@@ -4,7 +4,7 @@
     "height": 25,
     "modules-left": ["sway/workspaces", "sway/mode", "custom/playerctl"],
     "modules-center": ["sway/window"],
-    "modules-right": ["backlight", "pulseaudio", "memory", "cpu", "network", "custom/bluetooth", "custom/keyboard", "temperature", "battery", "tray", "clock"],
+    "modules-right": ["backlight", "pulseaudio", "custom/keyboard", "memory", "cpu", /*"network",*/ "temperature", "battery", "custom/bluetooth", "tray", "clock"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
