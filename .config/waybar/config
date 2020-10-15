@@ -12,7 +12,7 @@
         "max-length": 50
     },
     "tray": {
-		"icon-size": 21,
+        "icon-size": 21,
         "spacing": 10
     },
     "clock": {
@@ -30,24 +30,24 @@
     },
     "custom/bluetooth": {
         "exec": "rfkill list bluetooth | rg -q 'yes$' && echo '&#xf294;' || echo '&#xf293;'",
-		"exec-if": "~/.local/bin/bluetooth-enabled",
+        "exec-if": "~/.local/bin/bluetooth-enabled",
         "format": "{} ",
         "signal": 2,
         "interval": 45,
         "on-click": "blueman-manager",
-		"on-click-right": "~/.local/bin/togglebt",
+        "on-click-right": "~/.local/bin/togglebt",
         "tooltip": false
     },
-	"custom/playerctl": {
-		"exec": "~/.local/bin/whatsplaying",
-		"interval": 30,
-		"signal": 3,
-		"on-click": "timeout 1 playerctl next; pkill -SIGRTMIN+3 waybar",
-		"on-click-right": "timeout 1 playerctl previous; pkill -SIGRTMIN+3 waybar",
-		"on-click-middle": "timeout 1 playerctl play-pause; pkill -SIGRTM+3 waybar",
-		"tooltip": false,
-		"format": " &#xf025; {}"
-	},
+    "custom/playerctl": {
+        "exec": "~/.local/bin/whatsplaying",
+        "interval": 30,
+        "signal": 3,
+        "on-click": "timeout 1 playerctl next; pkill -SIGRTMIN+3 waybar",
+        "on-click-right": "timeout 1 playerctl previous; pkill -SIGRTMIN+3 waybar",
+        "on-click-middle": "timeout 1 playerctl play-pause; pkill -SIGRTM+3 waybar",
+        "tooltip": false,
+        "format": " &#xf025; {}"
+        },
     "backlight": {
         "format": "{percent}% {icon}",
         "format-icons": ["&#xf186;", "&#xf185;"],
@@ -67,12 +67,12 @@
         "format-icons": ["&#xf244;", "&#xf243;", "&#xf242;", "&#xf241;", "&#xf240;"]
     },
     "cpu": {
-        "interval": 10,
+        "interval": 15,
         "format": "{}% &#xf2db;",
         "max-length": 10
     },
     "memory": {
-        "interval": 10,
+        "interval": 15,
         "format": "{}% &#xf538;",
         "max-length": 10
     },
@@ -85,10 +85,10 @@
         "on-click": "nm-connection-editor"
     },
     "pulseaudio": {
-        "format": "{volume}% {icon}",
+        "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon}&#xf294; {format_source}",
         "format-bluetooth-muted": "&#xf6a9; {icon}&#xf294; {format_source}",
-        "format-muted": "{volume}% &#xf6a9;",
+        "format-muted": "{volume}% &#xf6a9; {format_source}",
         "format-source": "{volume}% &#xf3c9;",
         "format-source-muted": "&#xf539;",
         "format-icons": {
