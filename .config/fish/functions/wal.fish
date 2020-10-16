@@ -14,7 +14,7 @@ function wal --description "wal wrapper"
 	end
 
 	if pgrep mako > /dev/null
-		pkill dunst
+		pkill mako
 		command mako & disown
 	end
 
