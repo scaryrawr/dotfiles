@@ -23,13 +23,13 @@
         "exec": "ibus engine | rg -q libpinyin && echo '中' || echo 'en'",
         "interval": "once",
         "signal": 1,
-        "format": " {} &#xf11c;",
+        "format": " {} ",
         "on-click": "~/.local/bin/nextkb",
         "on-click-right": "ibus-setup",
         "tooltip": false
     },
     "custom/bluetooth": {
-        "exec": "rfkill list bluetooth | rg -q 'yes$' && echo '&#xf294;' || echo '&#xf293;'",
+        "exec": "rfkill list bluetooth | rg -q 'yes$' && echo '' || echo ''",
         "exec-if": "~/.local/bin/bluetooth-enabled",
         "format": "{} ",
         "signal": 2,
@@ -44,13 +44,13 @@
         "signal": 3,
         "on-click": "timeout 1 playerctl next; pkill -SIGRTMIN+3 waybar",
         "on-click-right": "timeout 1 playerctl previous; pkill -SIGRTMIN+3 waybar",
-        "on-click-middle": "timeout 1 playerctl play-pause; pkill -SIGRTM+3 waybar",
+        "on-click-middle": "timeout 1 playerctl play-pause; pkill -SIGRTMIN+3 waybar",
         "tooltip": false,
-        "format": " &#xf025; {}"
+        "format": "  {}"
         },
     "backlight": {
         "format": "{percent}% {icon}",
-        "format-icons": ["&#xf186;", "&#xf185;"],
+        "format-icons": ["", "", "", ""],
         "on-scroll-down": "light -U 1",
         "on-scroll-up": "light -A 1"
     },
@@ -61,49 +61,49 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% &#xf5e7;",
-        "format-plugged": "{capacity}% &#xf5e7;",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-        "format-icons": ["&#xf244;", "&#xf243;", "&#xf242;", "&#xf241;", "&#xf240;"]
+        "format-icons": ["", "", "", "", ""]
     },
     "cpu": {
         "interval": 15,
-        "format": "{}% &#xf2db;",
+        "format": "{}% ",
         "max-length": 10
     },
     "memory": {
         "interval": 15,
-        "format": "{}% &#xf538;",
+        "format": "{}% ",
         "max-length": 10
     },
     "network": {
-        "format-wifi": "{essid} &#xf1eb;",
-        "format-ethernet": "&#xf796;",
-        "format-linked": "{ifname} (No IP) &#xf6ff;",
+        "format-wifi": "{essid} ",
+        "format-ethernet": "",
+        "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
         "on-click": "nm-connection-editor"
     },
     "pulseaudio": {
         "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon}&#xf294; {format_source}",
-        "format-bluetooth-muted": "&#xf6a9; {icon}&#xf294; {format_source}",
-        "format-muted": "{volume}% &#xf6a9; {format_source}",
-        "format-source": "{volume}% &#xf3c9;",
-        "format-source-muted": "&#xf539;",
+        "format-bluetooth": "{volume}% {icon}  {format_source}",
+        "format-bluetooth-muted": " {icon}  {format_source}",
+        "format-muted": "{volume}%  {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
         "format-icons": {
-            "headphone": "&#xf025;",
-            "hands-free": "&#xf590;",
-            "headset": "&#xf590;",
-            "phone": "&#xf095;",
-            "portable": "&#xf3cd;",
-            "car": "&#xf1b9;",
-            "default": ["&#xf026;", "&#xf027;", "&#xf028;"]
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
     },
     "temperature": {
         "format": "{temperatureC}°C {icon}",
-        "format-icons":["&#xf2c7;", "&#xf2c8;", "&#xf2c9;", "&#xf2ca;", "#xf2cb;"]
+        "format-icons":["", "", "", "", ""]
     }
 }
