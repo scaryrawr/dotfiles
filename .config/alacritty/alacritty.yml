@@ -1,5 +1,5 @@
 font:
-  normal: { family: "Cascadia Code PL" }
+  normal: { family: "CaskaydiaCove Nerd Font" }
 background_opacity: 0.9
 window:
   decorations: none
