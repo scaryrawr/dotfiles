@@ -49,7 +49,7 @@ done
 shift $(($OPTIND-1))
 
 if [[ $signal == 1 ]]; then
-  pkill -RTMIN+3 waybar
+  pkill -SIGRTMIN+3 waybar
   pkill -f playermod
 fi
 
