@@ -9,7 +9,7 @@ ipc = Connection()
 
 def on_new_window(ipc, event):
     window = event.container
-    if window.window_instance in apps or window.window_class in apps:
+    if window.window_instance in apps or window.window_class in apps or window.app_id in apps:
         workspace = window.workspace()
         if not workspace:
             workspace = ipc.get_tree()
