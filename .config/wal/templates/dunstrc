@@ -29,7 +29,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "300x5-30+20"
+    geometry = "300x5+30+20"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -166,7 +166,7 @@
     max_icon_size = 32
 
     # Paths to default icons.
-    icon_path = /home/mike/.local/share/icons/Tela-pink-dark/scalable/apps:/home/mike/.local/share/icons/Tela-pink-dark/scalable/devices:/home/mike/.local/share/icons/Tela-pink-dark/scalable/places:/home/mike/.local/share/icons/Tela-pink-dark/16/status
+    icon_path = /home/mike/.local/share/icons/Tela-green-dark/scalable/apps:/home/mike/.local/share/icons/Tela-green-dark/scalable/devices:/home/mike/.local/share/icons/Tela-green-dark/scalable/places:/home/mike/.local/share/icons/Tela-green-dark/16/status
 
     ### History ###
 

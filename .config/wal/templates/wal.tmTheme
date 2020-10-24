@@ -123,7 +123,7 @@
 				<key>fontStyle</key>
 				<string>italic</string>
 				<key>foreground</key>
-				<string>{color12}</string>
+				<string>{color6}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -136,7 +136,7 @@
 				<key>fontStyle</key>
 				<string>underline</string>
 				<key>foreground</key>
-				<string>{color12}</string>
+				<string>{color6}</string>
 			</dict>
 		</dict>
 		<dict>
@@ -260,7 +260,7 @@
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>{background}</string>
+				<string>{color4}</string>
 				<key>fontStyle</key>
 				<string></string>
 				<key>foreground</key>
@@ -275,7 +275,7 @@
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>FF5C57</string>
+				<string>{color14}</string>
 				<key>foreground</key>
 				<string>{color4}</string>
 			</dict>
