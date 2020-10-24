@@ -23,12 +23,18 @@ function wal --description "wal wrapper"
 
 	if pgrep mako > /dev/null
 		pkill mako
-		command mako & disown
+		mako & disown
 	end
 
 	if pgrep dunst > /dev/null
 		pkill dunst
-		command dunst & disown
+		dunst & disown
 	end
+
+	if type -q warnai
+		warnai -w -g fantome
+	end
+
+	command bat cache --build
 end
 
