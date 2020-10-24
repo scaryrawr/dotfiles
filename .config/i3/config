@@ -9,8 +9,8 @@ set $mod Mod4
 set $term urxvt
 
 for_window [instance="tofi"] floating enable, border pixel 2, sticky enable
-#set $menu exec alacritty --title tofi --class tofi -d 80 10 -e sh -c '${HOME}/GitHub/tofi/tofi', sticky enable
-set $menu exec urxvt -title tofi -name tofi -geometry 80x10 -e sh -c '${HOME}/GitHub/tofi/tofi', sticky enable
+set $menu exec alacritty --title tofi --class tofi -d 80 10 -e sh -c 'tofi', sticky enable
+# set $menu exec urxvt -title tofi -name tofi -geometry 80x10 -e sh -c 'tofi', sticky enable
 
 exec --no-startup-id ~/.local/bin/smartfloat tofi
 
