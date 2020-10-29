@@ -21,18 +21,12 @@ function wal --description "wal wrapper"
 		ln -s ~/.cache/wal/wal.tmTheme ~/.config/bat/themes/wal.tmTheme
 	end
 
-	if pgrep mako > /dev/null
-		pkill mako
+	if pkill mako > /dev/null
 		mako & disown
 	end
 
-	if pgrep dunst > /dev/null
-		pkill dunst
+	if pkill dunst > /dev/null
 		dunst & disown
-	end
-
-	if type -q warnai
-		warnai -w -g fantome
 	end
 
 	command bat cache --build
