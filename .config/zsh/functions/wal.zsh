@@ -31,4 +31,6 @@ function wal() {
 	if pkill mako; then
 		mako & disown
 	fi
+
+	bat cache --build
 }
