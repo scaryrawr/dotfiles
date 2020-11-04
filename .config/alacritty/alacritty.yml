@@ -1,5 +1,7 @@
 font:
-  normal: { family: "CaskaydiaCove Nerd Font" }
+  normal: 
+    family: "CaskaydiaCove Nerd Font"
+    style: Regular
 background_opacity: 0.9
 window:
   decorations: none
