@@ -13,6 +13,7 @@ function usage ()
     Options:
     -q|quit       Kill instances of wf-recorder that are running
     -s|selected   Share the selected portion of the screen
+    -l|local      Record locally, no device streaming
     -h|help       Display this message
     -v|version    Display script version"
 
@@ -20,16 +21,22 @@ function usage ()
 
 selection=''
 quit=''
+
+device=$(v4l2-ctl --list-devices | awk '/wfrecord/ { getline;$1=$1;print }')
+location="--muxer=v4l2 --codec=rawvideo --file=$device -x yuv420p"
+
 #-----------------------------------------------------------------------
 #  Handle command line arguments
 #-----------------------------------------------------------------------
-while getopts ":hvsq" opt
+while getopts "hvsql" opt
 do
   case $opt in
 
 	q|quit     ) quit="quit" ;;
 
 	s|selected ) selection=`slurp` ;;
+
+	l|local    ) location='' ;;
 
 	h|help     )  usage; exit 0   ;;
 
@@ -48,10 +55,8 @@ if [ "$quit" == "quit" ]; then
   exit 0
 fi
 
-
-device=$(v4l2-ctl --list-devices | awk '/wfrecord/ { getline;$1=$1;print }')
 if [ "$selection" == "" ]; then
-  wf-recorder --muxer=v4l2 --codec=rawvideo --file=$device -x yuv420p
+  wf-recorder $location
 else
-  wf-recorder --geometry="$selection" --muxer=v4l2 --codec=rawvideo --file=$device -x yuv420p
+  wf-recorder --geometry="$selection" $location
 fi
