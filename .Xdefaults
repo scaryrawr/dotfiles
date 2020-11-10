@@ -1,4 +1,4 @@
-URxvt*font: xft:Cascadia Code PL:pixelsize=16:antialias=true
+URxvt*font: xft:CaskaydiaCove Nerd Font:pixelsize=16:antialias=true
 URxvt*scrollBar: false
 URxvt*depth: 32
 URxvt.perl-ext-common: default,clipboard,matcher
