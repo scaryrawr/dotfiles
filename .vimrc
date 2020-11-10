@@ -6,7 +6,9 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'dag/vim-fish'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'dylanaraps/wal.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'ervandew/supertab'
@@ -15,9 +17,11 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'mattn/emmet-vim'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'pangloss/vim-javascript'
 Plugin 'pprovost/vim-ps1'
 Plugin 'rust-lang/rust.vim'
+Plugin 'ryanoasis/vim-devicons'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'SirVer/ultisnips'
@@ -29,6 +33,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-sleuth'
 Plugin 'tpope/vim-surround'
+Plugin 'vim-airline/vim-airline'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'vim-ruby/vim-ruby'
 call vundle#end()
@@ -91,3 +96,10 @@ let g:airline_powerline_fonts = 1
 
 " Vim JavaScript settings
 let g:javascript_plugin_jsdoc = 1
+
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_heighlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_experimental_template_highlight = 1
+let g:cpp_concepts_highlight = 1
