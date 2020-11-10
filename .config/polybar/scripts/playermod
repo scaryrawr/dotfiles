@@ -1,13 +1,18 @@
 #!/usr/bin/env sh
 
-~/.local/bin/whatsplaying
+if [ "$#" -gt 1 ]; then
+  shift
+  ~/.local/bin/whatsplaying $@
+else
+  ~/.local/bin/whatsplaying
+fi
 
 if [[ $? != 0 ]]; then
   echo ''
 fi
 
 timing=0
-while [[ $timing -le 60 ]]; do
+while [[ $timing -le 30 ]]; do
   sleep 1
   ((timing+=1))
 done
