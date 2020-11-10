@@ -29,6 +29,8 @@ function wal --description "wal wrapper"
 		dunst & disown
 	end
 
-	command bat cache --build
+	if command -sq bat
+		command bat cache --build
+	end
 end
 
