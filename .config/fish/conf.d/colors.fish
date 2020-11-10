@@ -1,1 +1,0 @@
-/home/mike/.cache/wal/colors.fish
