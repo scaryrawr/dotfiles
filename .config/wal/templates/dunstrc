@@ -166,7 +166,7 @@
     max_icon_size = 32
 
     # Paths to default icons.
-    icon_path = /home/mike/.local/share/icons/Tela-green-dark/scalable/apps:/home/mike/.local/share/icons/Tela-green-dark/scalable/devices:/home/mike/.local/share/icons/Tela-green-dark/scalable/places:/home/mike/.local/share/icons/Tela-green-dark/16/status
+    icon_path = /home/mike/.local/share/icons/Tela-purple-dark/scalable/apps:/home/mike/.local/share/icons/Tela-purple-dark/scalable/devices:/home/mike/.local/share/icons/Tela-purple-dark/scalable/places:/home/mike/.local/share/icons/Tela-purple-dark/16/status
 
     ### History ###
 
