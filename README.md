@@ -13,7 +13,7 @@ It looks like that whatever the state of your home directory it believes that yo
 you can just have it believe everything is locally modified and then abandoning those changes.
 
 ```sh
-git clone --bare git@github.com:scaryrawr/dotfiles $HOME/.dotfiles
+git clone --bare https://github.com/scaryrawr/dotfiles $HOME/.dotfiles
 alias config='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
 config reset
