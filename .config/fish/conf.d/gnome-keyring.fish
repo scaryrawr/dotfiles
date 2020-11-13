@@ -1,1 +1,3 @@
-set -gx SSH_AUTH_SOCK (gnome-keyring-daemon --start | awk -F '=' '/SSH_AUTH_SOCK/ {print $2}')
+if test -n "$DESKTOP_SESSION"
+  set (gnome-keyring-daemon --start | string split "=")
+end
