@@ -9,7 +9,8 @@ set $term alacritty
 # set $term urxvt
 
 for_window [instance="tofi"] floating enable, border pixel 2, sticky enable
-set $menu exec alacritty --title tofi --class tofi -d 80 10 -e zsh -c '~/.config/i3/scripts/tofi'
+#set $menu exec alacritty --title tofi --class tofi -d 80 10 -e zsh -c '~/.config/i3/scripts/tofi'
+set $menu exec alacritty --title tofi --class tofi -o window.dimensions.columns=80 -o window.dimensions.lines=15 -e zsh -c '~/.config/i3/scripts/tofi'
 # set $menu exec urxvt  -title tofi -name tofi -geometry 80x10 -e zsh -c '~/.config/i3/scripts/tofi'
 
 exec --no-startup-id ~/.local/bin/smartfloat tofi

@@ -3,11 +3,12 @@
 # on the original workspace that the command was run on.
 
 for_window [app_id="tofi"] floating enable, border pixel 2, sticky enable
-set $menu exec alacritty  --title tofi --class tofi -d 80 10 -e zsh -c 'tofi --modes drun,run,i3wm'
+#set $menu exec alacritty  --title tofi --class tofi -d 80 10 -e zsh -c 'tofi --modes drun,run,i3wm'
+set $menu exec alacritty  --title tofi --class tofi -o window.dimensions.columns=80 -o window.dimensions.lines=15 -e zsh -c 'tofi --modes drun,run,i3wm'
 
 # for_window [instance="tofi"] floating enable, border pixel 2, sticky enable
 # set $menu exec urxvt  -title tofi -name tofi -geometry 80x10 -e zsh -c 'tofi --modes drun,run,i3wm'
 
-exec ~/.local/bin/smartfloat tofi
+exec ${HOME}/.local/bin/smartfloat tofi
 
 # set $menu wofi
