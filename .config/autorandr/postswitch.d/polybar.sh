@@ -1,1 +1,3 @@
-/home/mike/.config/polybar/launch.sh
+#!/usr/bin/env sh
+
+pkill polybar &> /dev/null && ~/.config/polybar/launch.sh
