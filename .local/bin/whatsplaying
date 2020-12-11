@@ -68,8 +68,12 @@ if [[ $exitinfo == 0 ]]; then
   echo "${infoarr[1]} | ${infoarr[2]}"
   if [[ $notify == 1 ]]; then
     if [[ $"${infoarr[3]}" != "" ]]; then
-      curl "${infoarr[3]}" > /tmp/playing.png
-      notify-send -i /tmp/playing.png "${infoarr[2]}" "${infoarr[1]}"
+      fname=$(echo ${infoarr[3]} | awk -F '/' '{print $5}')
+      if [ ! -f /tmp/spotify-$fname.png ]; then
+	curl "${infoarr[3]}" > /tmp/spotify-$fname.png
+      fi
+
+      notify-send -i /tmp/spotify-$fname.png "${infoarr[2]}" "${infoarr[1]}"
     else
       notify-send -i audio-headphones "${infoarr[2]}" "${infoarr[1]}"
     fi
