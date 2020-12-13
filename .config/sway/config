@@ -1,6 +1,6 @@
 # Read `man 5 sway` for a complete reference.
 
-include "$HOME/.cache/wal/colors-sway"
+include "${HOME}/.cache/wal/colors-sway"
 
 ### Variables
 # Logo key. Use Mod1 for Alt.
@@ -50,5 +50,7 @@ include "./config.d/looks.sh"
 include /etc/sway/config.d/*
 
 exec nm-applet --indicator
+
+exec /usr/libexec/polkit-gnome-authentication-agent-1
 
 exec wal -R
