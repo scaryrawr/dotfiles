@@ -31,7 +31,9 @@ focused_transparent = [
 	"gnome-tweaks",
 	"Code",
         "URxvt",
-        "urxvt"
+        "urxvt",
+        "Sakura",
+        "sakura"
 ]
 
 prev_focused = None
