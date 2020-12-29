@@ -9,4 +9,4 @@ exec swayidle -w \
               resume 'swaymsg "output * dpms on"' \
          before-sleep '${HOME}/.local/bin/blurlock &'
 for_window [title=".*"] inhibit_idle fullscreen
-for_window [app_id="chiaki"] inhibit_idle visible
+for_window [app_id="(chiaki|moonlight|zoom)"] inhibit_idle visible
