@@ -36,7 +36,16 @@ focused_transparent = [
         "sakura"
 ]
 
+no_transparency = [
+        "zoom",
+        "chiaki",
+        "moonlight"
+]
+
 prev_focused = None
+
+def ignore_opacity(names):
+    return any(any(name and app in name for name in names) for app in no_transparency)
 
 def focused_opacity(names, special_opacity):
     return special_opacity if any(any(name and app in name for name in names) for app in focused_transparent) else "1"
@@ -47,7 +56,8 @@ def on_window_focus(inactive_opacity, special_opacity, ipc, event):
     focused = event.container
     if focused.id != prev_focused.id:  # https://github.com/swaywm/sway/issues/2859
         focused.command("opacity " + focused_opacity([focused.window_class, focused.app_id], special_opacity))
-        prev_focused.command("opacity " + inactive_opacity)
+        if not ignore_opacity([prev_focused.window_class, prev_focused.app_id]):
+            prev_focused.command("opacity " + inactive_opacity)
         prev_focused = focused
 
 
@@ -86,7 +96,8 @@ if __name__ == "__main__":
         if window.focused:
             prev_focused = window
         else:
-            window.command("opacity " + args.opacity)
+            if not ignore_opacity([window.window_class, window.app_id]):
+                window.command("opacity " + args.opacity)
     for sig in [signal.SIGINT, signal.SIGTERM]:
         signal.signal(sig, lambda signal, frame: remove_opacity(ipc))
     ipc.on(i3ipc.Event.WINDOW_FOCUS, partial(on_window_focus, args.opacity, args.specialopacity))
