@@ -51,6 +51,8 @@ include /etc/sway/config.d/*
 
 exec nm-applet --indicator
 
-exec /usr/libexec/polkit-gnome-authentication-agent-1
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 exec wal -R
+
+exec echo '--enable-features=UseOzonePlatform --ozone-platform=wayland' > ~/.config/chromium-flags.conf

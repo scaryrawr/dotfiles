@@ -9,7 +9,6 @@ set $term alacritty
 # set $term urxvt
 
 for_window [instance="tofi"] floating enable, border pixel 2, sticky enable
-#set $menu exec alacritty --title tofi --class tofi -d 80 10 -e zsh -c '~/.config/i3/scripts/tofi'
 set $menu exec alacritty --title tofi --class tofi -o window.dimensions.columns=80 -o window.dimensions.lines=15 -e zsh -c '~/.config/i3/scripts/tofi'
 # set $menu exec urxvt  -title tofi -name tofi -geometry 80x10 -e zsh -c '~/.config/i3/scripts/tofi'
 
@@ -205,8 +204,6 @@ exec --no-startup-id /usr/libexec/geoclue-2.0/demos/agent
 
 exec --no-startup-id dunst
 
-exec --no-startup-id ${HOME}/.local/bin/wal -R
-
 exec --no-startup-id ibus-daemon --xim -d -r
 
 exec --no-startup-id ~/.config/i3/scripts/start-bt-tray
@@ -221,4 +218,7 @@ no_focus [title="Microsoft Teams Notification"]
 for_window [title="Microsoft Teams Notification"] floating enable
 
 popup_during_fullscreen leave_fullscreen
-exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+exec --no-startup-id wal -R
+exec --no-startup-id echo '--enable-features=UseOzonePlatform --ozone-platform=x11' > ~/.config/chromium-flags.conf
