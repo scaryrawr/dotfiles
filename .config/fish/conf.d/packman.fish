@@ -19,3 +19,17 @@ if type -q apt
   alias agi="sudo apt install"
   alias aguu="sudo apt update && sudo apt upgrade"
 end
+
+if type -q pacman
+  alias paci="sudo pacman -S"
+  alias pacr="sudo pacman -Rs"
+  alias pacs="pacman -Ss"
+  alias pacu="sudo pacman -Syu"
+end
+
+if type -q yay
+  alias yayi="yay -S"
+  alias yayr="yay -Rs"
+  alias yays="yay -Ss"
+  alias yayu="yay -Syu"
+end
