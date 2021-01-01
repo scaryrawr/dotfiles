@@ -2,5 +2,5 @@
 Name=Autorandr
 Comment=Automatically select a display configuration based on connected devices
 Type=Application
-Exec=/usr/local/bin/autorandr -c --default default
+Exec=autorandr -c --default default
 X-GNOME-Autostart-Phase=Initialization
