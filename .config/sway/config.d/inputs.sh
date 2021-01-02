@@ -37,7 +37,7 @@ input "2:14:ETPS/2_Elantech_Touchpad" {
     middle_emulation enabled
 }
 
-exec ibus-daemon -xdr
+exec fcitx -d -r 
 
-bindsym $mod+space exec ${HOME}/.local/bin/nextkb
+bindsym --locked $mod+space exec fcitx-remote -t
 

@@ -4,7 +4,7 @@
     "height": 25,
     "modules-left": ["sway/workspaces", "sway/mode", "custom/playerctl"],
     "modules-center": ["sway/window"],
-    "modules-right": ["backlight", "pulseaudio", "custom/keyboard", "memory", "cpu", /*"network",*/ "temperature", "battery", "custom/bluetooth", "tray", "clock"],
+    "modules-right": ["backlight", "pulseaudio", "memory", "cpu", /*"network",*/ "temperature", "battery", "custom/bluetooth", "tray", "clock"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -18,15 +18,6 @@
     "clock": {
         "tooltip-format": "<big>{:%B %d, %Y}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
-    },
-    "custom/keyboard": {
-        "exec": "ibus engine | rg -q pinyin && echo '中' || echo 'en'",
-        "interval": "once",
-        "signal": 1,
-        "format": " {} ",
-        "on-click": "~/.local/bin/nextkb",
-        "on-click-right": "ibus-setup",
-        "tooltip": false
     },
     "custom/bluetooth": {
         "exec": "rfkill list bluetooth | rg -q 'yes$' && echo '' || echo ''",
@@ -42,9 +33,9 @@
         "exec": "~/.local/bin/whatsplaying",
         "interval": 30,
         "signal": 3,
-        "on-click": "timeout 1 playerctl next; pkill -SIGRTMIN+3 waybar",
-        "on-click-right": "timeout 1 playerctl previous; pkill -SIGRTMIN+3 waybar",
-        "on-click-middle": "timeout 1 playerctl play-pause; pkill -SIGRTMIN+3 waybar",
+        "on-click": "timeout 2 playerctl next; pkill -SIGRTMIN+3 waybar",
+        "on-click-right": "timeout 2 playerctl previous; pkill -SIGRTMIN+3 waybar",
+        "on-click-middle": "timeout 2 playerctl play-pause; pkill -SIGRTMIN+3 waybar",
         "tooltip": false,
         "format": "  {}"
         },
