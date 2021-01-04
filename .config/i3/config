@@ -6,6 +6,7 @@ set $mod Mod4
 
 # Your preferred terminal emulator
 set $term alacritty
+# set $term kitty
 # set $term urxvt
 
 for_window [instance="tofi"] floating enable, border pixel 2, sticky enable
@@ -121,16 +122,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 "一"
+set $ws2 "二"
+set $ws3 "三"
+set $ws4 "四"
+set $ws5 "五"
+set $ws6 "六"
+set $ws7 "七"
+set $ws8 "八"
+set $ws9 "九"
+set $ws10 "十"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -221,4 +222,3 @@ popup_during_fullscreen leave_fullscreen
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 exec --no-startup-id wal -R
-exec --no-startup-id echo '--enable-features=UseOzonePlatform --ozone-platform=x11' > ~/.config/chromium-flags.conf

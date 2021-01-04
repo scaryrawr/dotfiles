@@ -14,6 +14,7 @@ set $right l
 
 # Your preferred terminal emulator
 set $term alacritty
+# set $term kitty
 # set $term urxvt
 
 include "./config.d/menu.sh"
@@ -54,5 +55,3 @@ exec nm-applet --indicator
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 exec wal -R
-
-exec echo '--enable-features=UseOzonePlatform --ozone-platform=wayland' > ~/.config/chromium-flags.conf

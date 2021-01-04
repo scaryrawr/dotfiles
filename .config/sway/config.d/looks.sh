@@ -10,5 +10,6 @@ exec ${HOME}/.config/sway/scripts/sway_inactive
 
 no_focus [title="Microsoft Teams Notification"]
 for_window [title="Microsoft Teams Notification"] floating enable, move position 20 20
-for_window [title="Firefox — Sharing Indicator"] floating enable
+for_window [title="^Firefox — Sharing Indicator$"] floating enable
+for_window [title="^Picture-in-Picture$"] floating enable
 for_window [title="sharing your screen"] floating enable

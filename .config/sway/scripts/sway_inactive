@@ -32,14 +32,17 @@ focused_transparent = [
         "URxvt",
         "urxvt",
         "Sakura",
-        "sakura"
+        "sakura",
+        "kitty",
+        "Kitty"
 ]
 
 no_transparency = [
         "zoom",
         "chiaki",
         "moonlight",
-        "Messenger Call"
+        "Messenger Call",
+        "Picture-in-Picture"
 ]
 
 prev_focused = None
