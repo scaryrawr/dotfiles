@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+source ~/.config/librespotd/librespotd.conf
+
+librespot -c "$cache_path" -n "$device_name" -b "$bitrate" --device-type "$device_type" --initial-volume 100 --onevent "$on_event" -u "$username" -p "$(secret-tool lookup service librespotd)"
