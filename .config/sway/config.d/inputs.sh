@@ -37,7 +37,3 @@ input "2:14:ETPS/2_Elantech_Touchpad" {
     middle_emulation enabled
 }
 
-exec fcitx -d -r 
-
-bindsym --locked $mod+space exec fcitx-remote -t
-
