@@ -68,12 +68,16 @@ if [[ $exitinfo == 0 ]]; then
   echo "${infoarr[1]} | ${infoarr[2]}"
   if [[ $notify == 1 ]]; then
     if [[ $"${infoarr[3]}" != "" ]]; then
-      fname=$(echo ${infoarr[3]} | awk -F '/' '{print $5}')
-      if [ ! -f /tmp/spotify-$fname.png ]; then
-	curl "${infoarr[3]}" > /tmp/spotify-$fname.png
+      IMG_PATH=${infoarr[3]}
+      if [[ $IMG_PATH == http* ]]; then
+	fname=`basename $IMG_PATH`
+	if [ ! -f /tmp/spotify-$fname.jpg ]; then
+	  curl "$IMG_PATH" > /tmp/spotify-$fname.jpg
+	  IMG_PATH="/tmp/spotify-$fname.jpg"
+	fi
       fi
 
-      notify-send -i /tmp/spotify-$fname.png "${infoarr[2]}" "${infoarr[1]}"
+      notify-send -i "${IMG_PATH}" "${infoarr[2]}" "${infoarr[1]}"
     else
       notify-send -i audio-headphones "${infoarr[2]}" "${infoarr[1]}"
     fi
