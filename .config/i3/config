@@ -28,7 +28,7 @@ font pango:monospace 8
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock -l  -- ${HOME}/.local/bin/blurlock -l i3lock -s maim -n
+exec --no-startup-id xss-lock -l  -- ~/.local/bin/blurlock -l i3lock -s maim -n
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -122,16 +122,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "一"
-set $ws2 "二"
-set $ws3 "三"
-set $ws4 "四"
-set $ws5 "五"
-set $ws6 "六"
-set $ws7 "七"
-set $ws8 "八"
-set $ws9 "九"
-set $ws10 "十"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -167,7 +167,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # lock screen
-bindsym $mod+Escape exec --no-startup-id "${HOME}/.local/bin/blurlock -l i3lock -s maim &"
+bindsym $mod+Escape exec --no-startup-id "~/.local/bin/blurlock -l i3lock -s maim &"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -199,9 +199,7 @@ bindsym $mod+r mode "resize"
 
 for_window [class=".*"] border pixel 0
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-exec --no-startup-id fcitx -d -r 
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 exec --no-startup-id /usr/libexec/geoclue-2.0/demos/agent
 
@@ -219,6 +217,8 @@ no_focus [title="Microsoft Teams Notification"]
 for_window [title="Microsoft Teams Notification"] floating enable
 
 popup_during_fullscreen leave_fullscreen
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id ~/.local/bin/polkit-auth-agent
 
-exec --no-startup-id wal -R
+exec --no-startup-id ~/.local/bin/wal -R
+
+exec --no-startup-id ibus-daemon -rxd
