@@ -30,14 +30,14 @@
         "tooltip": false
     },
     "custom/playerctl": {
-        "exec": "~/.local/bin/whatsplaying",
-        "interval": 30,
-        "signal": 3,
-        "on-click": "timeout 2 playerctl next; pkill -SIGRTMIN+3 waybar",
-        "on-click-right": "timeout 2 playerctl previous; pkill -SIGRTMIN+3 waybar",
-        "on-click-middle": "timeout 2 playerctl play-pause; pkill -SIGRTMIN+3 waybar",
+        "exec": "playerctl metadata -F --format '{{title}} | {{artist}}'",
+		"signal": 3,
+        "on-click": "timeout 2 playerctl next",
+        "on-click-right": "timeout 2 playerctl previous",
+        "on-click-middle": "timeout 2 playerctl play-pause",
         "tooltip": false,
-        "format": "  {}"
+        "format": "  {}",
+		"max-length": 35
         },
     "backlight": {
         "format": "{percent}% {icon}",
