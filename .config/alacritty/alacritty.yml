@@ -1,9 +1,0 @@
-env:
-  WINIT_X11_SCALE_FACTOR: "1"
-font:
-  normal: 
-    family: "CaskaydiaCove Nerd Font"
-    style: Regular
-background_opacity: 0.9
-window:
-  decorations: none
