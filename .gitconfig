@@ -1,8 +1,5 @@
 [credential]
-	credentialStore = secretservice
-	helper = /usr/local/bin/git-credential-manager-core
-[credential "https://dev.azure.com"]
-	useHttpPath = true
+	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe
 [alias]
 	co = checkout
 [pull]
