@@ -52,6 +52,6 @@ include /etc/sway/config.d/*
 
 exec nm-applet --indicator
 
-exec $HOME/.local/bin/polkit-auth-agent
+exec lxpolkit
 
-exec $HOME/.local/bin/wal -R
+exec ${HOME}/.local/bin/wal -R
