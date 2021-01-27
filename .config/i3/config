@@ -13,6 +13,7 @@ for_window [instance="tofi"] floating enable, border pixel 2, sticky enable
 set $menu exec alacritty --title tofi --class tofi -o window.dimensions.columns=80 -o window.dimensions.lines=15 -e zsh -c '~/.config/i3/scripts/tofi'
 # set $menu exec urxvt  -title tofi -name tofi -geometry 80x10 -e zsh -c '~/.config/i3/scripts/tofi'
 
+# Exit full screen when tofi launches so it's visible
 exec --no-startup-id ~/.local/bin/smartfloat tofi
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -37,6 +38,7 @@ exec --no-startup-id nm-applet
 # No system beeps
 exec --no-startup-id xset -b
 
+# Run picom for some visual eye candy
 exec --no-startup-id picom -b
 
 # Use pactl to adjust volume in PulseAudio.
@@ -221,3 +223,5 @@ exec --no-startup-id ~/.local/bin/polkit-auth-agent
 exec --no-startup-id ~/.local/bin/wal -R
 
 exec --no-startup-id ibus-daemon -rxd
+
+exec $HOME/bin/fusuma -c $HOME/.config/fusuma/i3.yml

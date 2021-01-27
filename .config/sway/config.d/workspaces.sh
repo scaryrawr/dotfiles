@@ -38,3 +38,9 @@
     bindsym $mod+Shift+0 move container to workspace $ws10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+# Start ydotool back end for sending keys and gestures
+exec ydotoold
+
+# Start fusuma  for watching trackpad gestrues
+exec $HOME/bin/fusuma -c $HOME/.config/fusuma/sway.yml
