@@ -9,12 +9,14 @@ set $term alacritty
 # set $term kitty
 # set $term urxvt
 
-for_window [instance="tofi"] floating enable, border pixel 2, sticky enable
-set $menu exec alacritty --title tofi --class tofi -o window.dimensions.columns=80 -o window.dimensions.lines=15 -e zsh -c '~/.config/i3/scripts/tofi'
+set $menu rofi -show
+
+# for_window [instance="tofi"] floating enable, border pixel 2, sticky enable
+# set $menu exec alacritty --title tofi --class tofi -o window.dimensions.columns=80 -o window.dimensions.lines=15 -e zsh -c '~/.config/i3/scripts/tofi'
 # set $menu exec urxvt  -title tofi -name tofi -geometry 80x10 -e zsh -c '~/.config/i3/scripts/tofi'
 
 # Exit full screen when tofi launches so it's visible
-exec --no-startup-id ~/.local/bin/smartfloat tofi
+# exec --no-startup-id ~/.local/bin/smartfloat tofi
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -224,4 +226,4 @@ exec --no-startup-id ~/.local/bin/wal -R
 
 exec --no-startup-id ibus-daemon -rxd
 
-exec $HOME/bin/fusuma -c $HOME/.config/fusuma/i3.yml
+exec --no-startup-id ~/bin/fusuma -c ~/.config/fusuma/i3.yml
