@@ -5,7 +5,7 @@
 if [ -z "$@" ]; then
 	{
 		# Tiling Windows
-		swaymsg -t get_tree | jq -r 'recurse(.nodes[]) | select(.type == "con") | select(.name) | .name'
+		swaymsg -t get_tree | jq -r 'recurse(.nodes[]) | select(.type == "con") | select(.window_type != "unknown") | select(.nodes == []) | select(.floating_nodes == []) | select(.name) | .name'
 
 		# Floating Windows
 		swaymsg -t get_tree | jq -r '..| select(.floating_nodes? != null) | select(.floating_nodes != []) | .floating_nodes | .[].name'
