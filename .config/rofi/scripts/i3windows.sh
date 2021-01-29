@@ -12,7 +12,7 @@ if [ -z "$@" ]; then
 	} | sort -n
 else
 	# Try to "sanitize" the string for sending to sway/i3, need to remove double quotes as well as some regex patterns...
-	TITLE="$(echo $@ | sed 's/[[)(\"\$^\\+?|]/./g')"
+	TITLE="$(echo $@ | sed 's/\([[)(\"\$^\\+?|]\)/\\\1/g')"
 
 	# If multiple windows have the same title, we'll end up only being able to switch to the first one that appears in the tree
 	swaymsg "[title=\"^${TITLE}\$\"] focus" &>/dev/null
