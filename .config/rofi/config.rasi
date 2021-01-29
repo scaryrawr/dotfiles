@@ -1,5 +1,5 @@
 configuration {
-	modi: "combi,drun,run,window,ssh";
+	modi: "combi,drun,run,windows:~/.config/rofi/scripts/i3windows.sh,ssh";
 /*	width: 50;*/
 /*	lines: 15;*/
 /*	columns: 1;*/
@@ -36,7 +36,7 @@ configuration {
 /*	auto-select: false;*/
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
-	combi-modi: "window,drun";
+	combi-modi: "windows:~/.config/rofi/scripts/i3windows.sh,drun";
 /*	matching: "normal";*/
 /*	tokenize: true;*/
 /*	m: "-5";*/
