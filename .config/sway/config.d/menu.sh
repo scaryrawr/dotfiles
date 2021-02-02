@@ -10,5 +10,6 @@
 
 #exec ${HOME}/.local/bin/smartfloat tofi
 
-set $menu rofi -monitor $(xrandr | rg 'connected ' | awk '{if(line==NR) print $1}' line=$(swaymsg -t get_outputs | jq '.[].focused' | awk '{if($0=="true") print NR}')) -show
+set $menu GTK_IM_MODULE=fcitx QT_IM_MODULE=fcitx XMODIFIERS=@im=fcitx XIM_PROGRAM=fcitx SDL_IM_MODULE=fcitx rofi -monitor $(xrandr | rg 'connected ' | awk '{if(line==NR) print $1}' line=$(swaymsg -t get_outputs | jq '.[].focused' | awk '{if($0=="true") print NR}')) -show
+#set $menu exec swaymsg exec 'rofi -show'
 #set $menu wofi
