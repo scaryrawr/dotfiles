@@ -226,4 +226,4 @@ exec --no-startup-id ~/.local/bin/wal -R
 
 exec --no-startup-id ibus-daemon -rxd
 
-exec --no-startup-id ~/bin/fusuma -c ~/.config/fusuma/i3.yml
+exec --no-startup-id ~/bin/fusuma -c ~/.config/fusuma/sway.yml

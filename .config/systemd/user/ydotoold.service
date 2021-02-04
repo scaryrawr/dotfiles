@@ -1,0 +1,13 @@
+[Unit]
+Description=Generic command-line automation tool
+
+[Service]
+Type=simple
+ExecStart=ydotoold
+Restart=always
+RestartSec=12
+ExecReload=/usr/bin/kill -HUP $MAINPID
+KillMode=process
+
+[Install]
+WantedBy=default.target
