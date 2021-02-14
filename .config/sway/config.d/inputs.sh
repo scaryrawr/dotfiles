@@ -39,4 +39,5 @@ input "2:14:ETPS/2_Elantech_Touchpad" {
 exec fcitx -d -r 
 bindsym --locked $mod+space exec fcitx-remote -t
 
+exec ydotoold
 exec ${HOME}/bin/fusuma -c ${HOME}/.config/fusuma/sway.yml
