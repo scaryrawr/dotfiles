@@ -1,5 +1,0 @@
-#!/usr/bin/env sh
-
-if [[ ~/.local/bin/bluetooth-enabled ]]; then
-	blueman-applet & disown
-fi

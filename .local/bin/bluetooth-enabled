@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
- systemctl list-unit-files | awk '/bluetooth\.service/ {print $2}' | rg -q enabled

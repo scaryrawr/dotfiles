@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-tofi --modes drun,run,i3wm

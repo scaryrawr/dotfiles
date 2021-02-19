@@ -1,7 +1,0 @@
-#!/usr/bin/env sh
-
-if test -f "/usr/libexec/polkit-gnome-authentication-agent-1"; then
-	/usr/libexec/polkit-gnome-authentication-agent-1
-else
-	/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-fi
