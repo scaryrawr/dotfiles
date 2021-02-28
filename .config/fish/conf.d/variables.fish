@@ -14,6 +14,14 @@ if test -d $HOME/bin
   set -gx PATH $PATH $HOME/bin
 end
 
+if test -d /var/lib/flatpak/exports/bin
+  set -gx PATH $PATH /var/lib/flatpak/exports/bin
+end
+
+if test -d $HOME/.local/share/flatpak/exports/bin
+  set -gx PATH $PATH $HOME/.local/share/flatpak/exports/bin
+end
+
 set NPM_DIR (which npm)
 set -gx NPM_DIR (dirname $NPM_DIR)
 
