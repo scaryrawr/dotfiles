@@ -6,9 +6,9 @@ if type -q dnf
   alias dnfp="dnf info"                       # Show package information
   alias dnfs="dnf search"                     # Search package
 
-  alias dnfu="sudo dnf upgrade"               # Upgrade package
-  alias dnfi="sudo dnf install"               # Install package
-  alias dnfgi="sudo dnf groupinstall"         # Install package group
+  alias dnfu="sudo dnf --setopt=install_weak_deps=False upgrade"               # Upgrade package
+  alias dnfi="sudo dnf --setopt=install_weak_deps=False install"               # Install package
+  alias dnfgi="sudo dnf --setopt=install_weak_deps=False groupinstall"         # Install package group
   alias dnfr="sudo dnf remove"                # Remove package
   alias dnfgr="sudo dnf groupremove"          # Remove package group
   alias dnfc="sudo dnf clean all"             # Clean cache
