@@ -1,5 +1,5 @@
 [credential]
-	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe
+	helper = /mnt/c/Program\\ Files\\ \\(x86\\)/Git/mingw64/libexec/git-core/git-credential-wincred.exe
 [alias]
 	co = checkout
 [pull]
