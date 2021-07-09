@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+
+from i3ipc import Connection, Event
+import sys
+
+apps = sys.argv[1:]
+
+ipc = Connection()
+
+def on_new_window(ipc, event):
+    window = event.container
+    if window.window_instance in apps or window.window_class in apps or window.app_id in apps:
+        workspace = window.workspace()
+        if not workspace:
+            workspace = ipc.get_tree()
+        for full in workspace.find_fullscreen():
+            full.command('fullscreen toggle')
+        window.command('focus')
+
+if __name__ == "__main__":
+    ipc.on(Event.WINDOW_NEW, on_new_window)
+    ipc.main()

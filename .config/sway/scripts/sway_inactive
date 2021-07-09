@@ -1,0 +1,107 @@
+#!/usr/bin/env python3
+
+# From: https://github.com/swaywm/sway/blob/master/contrib/inactive-windows-transparency.py
+
+# This script requires i3ipc-python package (install it from a system package manager
+# or pip).
+# It makes inactive windows transparent. Use `transparency_val` variable to control
+# transparency strength in range of 0…1 or use the command line argument -o.
+
+import argparse
+import i3ipc
+import signal
+import sys
+from functools import partial
+
+# Apps that should have *some* transparency even when focused
+focused_transparent = [
+	"discord",
+	"Electron Fiddle",
+	"Geary",
+	"gedit",
+	"Mattermost",
+	"Caprine",
+	"Microsoft Teams",
+	"Nautilus",
+	"Sublime_merge",
+	"sublime_text",
+	"gnome-system-monitor",
+	"gnome-tweaks",
+	"Code",
+	"Code - Insiders",
+        "URxvt",
+        "urxvt",
+        "Sakura",
+        "sakura",
+        "kitty",
+        "Kitty"
+]
+
+no_transparency = [
+        "zoom",
+        "chiaki",
+        "moonlight",
+        "Messenger Call",
+        "Picture-in-Picture"
+]
+
+prev_focused = None
+
+def ignore_opacity(names):
+    return any(any(name and app == name for name in names) for app in no_transparency)
+
+def focused_opacity(names, special_opacity):
+    return special_opacity if any(any(name and app == name for name in names) for app in focused_transparent) else "1"
+
+def on_window_focus(inactive_opacity, special_opacity, ipc, event):
+    global prev_focused
+
+    focused = event.container
+    if focused.id != prev_focused.id:  # https://github.com/swaywm/sway/issues/2859
+        focused.command("opacity " + focused_opacity([focused.window_class, focused.name, focused.app_id], special_opacity))
+        if prev_focused and not ignore_opacity([prev_focused.window_class, prev_focused.name, prev_focused.app_id]):
+            prev_focused.command("opacity " + inactive_opacity)
+        prev_focused = focused
+
+
+def remove_opacity(ipc):
+    for workspace in ipc.get_tree().workspaces():
+        for w in workspace:
+            w.command("opacity 1")
+    ipc.main_quit()
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="This script allows you to set the transparency of unfocused windows in sway."
+    )
+    parser.add_argument(
+        "--opacity",
+        "-o",
+        type=str,
+        default="0.80",
+        help="set opacity value in range 0...1",
+    )
+    parser.add_argument(
+        "--specialopacity",
+        "-s",
+        type=str,
+        default="0.90",
+        help="set special opacity value in range 0...1",
+    )
+
+    args = parser.parse_args()
+
+    ipc = i3ipc.Connection()
+
+    for window in ipc.get_tree():
+        if window.focused:
+            prev_focused = window
+        else:
+            if not ignore_opacity([window.window_class, window.name, window.app_id]):
+                window.command("opacity " + args.opacity)
+    for sig in [signal.SIGINT, signal.SIGTERM]:
+        signal.signal(sig, lambda signal, frame: remove_opacity(ipc))
+    ipc.on(i3ipc.Event.WINDOW_FOCUS, partial(on_window_focus, args.opacity, args.specialopacity))
+    ipc.main()

@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+if rfkill list bluetooth | rg -q 'yes$'; then
+	rfkill unblock bluetooth
+else
+	rfkill block bluetooth
+fi
+
+pkill -RTMIN+2 waybar

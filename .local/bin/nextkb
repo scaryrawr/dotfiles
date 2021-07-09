@@ -1,0 +1,30 @@
+#!/bin/zsh
+
+current=$(ibus engine)
+grabnext='false'
+next=''
+
+# Read ibus config for desired engine order
+IFSOLD=$IFS
+IFS=','
+engines=($(ibus read-config | awk -F'[][]' $'/preload-engines/ {gsub(/[\' ]/, "", $2); print $2}'))
+IFS=$IFSOLD
+for engine in $engines; do
+    if [ 'true' = $grabnext ]; then
+        next=$engine
+        break
+    fi
+
+    # The next engine in the list should be set
+    grabnext="$([[ $current == $engine ]] && echo true || echo false)"
+done
+
+# Handle loop around case where we were at the end of the engine list
+if [ '' = "$next" ]; then
+    next=${engines[1]}
+fi
+
+# Switch keyboard
+ibus engine $next
+
+pgrep waybar > /dev/null && pkill -SIGRTMIN+1 waybar
