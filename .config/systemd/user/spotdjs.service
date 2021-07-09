@@ -4,7 +4,7 @@ Wants=network-online.target
 After=network-online.target
 
 [Service]
-ExecStart=/home/mike/.nvm/versions/node/v14.15.4/bin/spotdjs
+ExecStart=/home/mike/.nvm/versions/node/v14.17.3/bin/spotdjs
 Restart=always
 RestartSec=12
 
